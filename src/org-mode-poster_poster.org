@@ -80,27 +80,27 @@
   ; Nicer formatting for code
   (setq org-latex-listings t)
   (setq org-latex-listings 'minted)
-  '(org-export-latex-listings-langs 
-      (quote ((emacs-lisp "Lisp") 
-              (lisp "Lisp") 
-              (clojure "Lisp") 
-              (c "C") 
-              (cc "C++") 
-              (fortran "fortran") 
-              (perl "Perl") 
-              (cperl "Perl") 
-              (python "Python") 
-              (ruby "Ruby") 
-              (html "HTML") 
-              (xml "XML") 
-              (tex "TeX") 
-              (latex "TeX") 
-              (shell-script "bash") 
-              (gnuplot "Gnuplot") 
-              (ocaml "Caml") 
-              (caml "Caml") 
-              (sql "SQL") 
-              (sqlite "sql") 
+  '(org-export-latex-listings-langs
+      (quote ((emacs-lisp "Lisp")
+              (lisp "Lisp")
+              (clojure "Lisp")
+              (c "C")
+              (cc "C++")
+              (fortran "fortran")
+              (perl "Perl")
+              (cperl "Perl")
+              (python "Python")
+              (ruby "Ruby")
+              (html "HTML")
+              (xml "XML")
+              (tex "TeX")
+              (latex "TeX")
+              (shell-script "bash")
+              (gnuplot "Gnuplot")
+              (ocaml "Caml")
+              (caml "Caml")
+              (sql "SQL")
+              (sqlite "sql")
               (R-mode "R"))))
   (setq org-latex-minted-options
      '(("linenos=true") ("bgcolor=lightgray")))
@@ -125,7 +125,7 @@
 	(org-toggle-link-display)
 	; don't remove logfiles at export
   (setq org-latex-remove-logfiles nil)
-	
+
   ; Keybindings
   ; (global-set-key (kbd "<f7> c") "#+CAPTION: ")
   (defun setfillcolumn72 ()
@@ -141,10 +141,10 @@
   (define-key org-mode-map (kbd "C-c l #") "#+LATEX_HEADER: ")
   (define-key org-mode-map (kbd "C-c f c 4 2") 'setfillcolumn42)
   (define-key org-mode-map (kbd "C-c f c 7 2") 'setfillcolumn72)
-	
+
   (setq org-odt-category-map-alist
       '(("__Figure__" "*Figure*" "value" "Figure" org-odt--enumerable-image-p)))
- 
+
 
 	; let ess not ask for starting directory
   (setq ess-ask-for-ess-directory nil)
@@ -152,9 +152,9 @@
   ;(setq org-latex-pdf-process '("latexmk -pdflatex='xelatex
   ;-output-directory=../output/tex/ -interaction nonstopmode' -pdf
   ;-bibtex -f %f"))
-  (setq org-latex-logfiles-extensions 
-      (quote("bcf" "blg" "fdb_latexmk" "fls" 
-      "figlist" "idx" "log" "nav" "out" "ptc" 
+  (setq org-latex-logfiles-extensions
+      (quote("bcf" "blg" "fdb_latexmk" "fls"
+      "figlist" "idx" "log" "nav" "out" "ptc"
       "run.xml" "snm" "toc" "vrb" "xdv")))
 
   ; deactivate link resolving
@@ -175,7 +175,7 @@
 :BEAMER_env: fullframe
 :END:
 ** Code                                                       :ignore:
-# Babel code can go here to populate the poster with dynamic output 
+# Babel code can go here to populate the poster with dynamic output
 
 ** Left column                                        :BMCOL:
 :PROPERTIES:
@@ -186,77 +186,54 @@
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-- Here we show how org-mode (version src_elisp{org-version}
-  {{{results(9.1.7)}}}) and emacs (version src_elisp{emacs-version}
-  {{{results(25.2.2)}}}) can be used to make decent looking scientific
-  posters
-- With org-mode we can populate the poster with code, graphs and numbers
-  from inline code in languages such as R, python, Matlab and even shell
-  scripting
-- For example, this poster was created on {{{time(%Y-%m-%d %H:%M)}}} on
-  src_bash{lsb_release -sd} {{{results(Ubuntu 17.10)}}}.
-- Inline code could look like this (which will produce a graph; 
-  Fig. [[figcode1]]):
+- cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walker_tool_2013 have proposed PS trimming methods for binary exposures.
 
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.68
-:BEAMER_opt: [T]
-:END:
 
-#+NAME: code1
-#+BEGIN_SRC R  :file 3.png :session :exports both :results graphics  
-set.seed(20180402)
-x1 <- rnorm(100, 0, 1)
-x2 <- rnorm(100, 0.5, 1)
-hist(x1, col="red")
-hist(x2, col="blue", add=TRUE)
-#+END_SRC
+- In particular, cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution among those who received treatment on contrary to the prediction based on measured confounders.
 
-#+NAME: figcode1
-#+CAPTION: This is the output.
-#+RESULTS: code1
-[[file:3.png]]
 
-*** Inline code and tables                            :B_block:
-:PROPERTIES:
-:BEAMER_env: block
-:END:
-- Tables are powerful in org-mode and even include spreadsheet
-  capabilities
-- Some code to process the first vector from above to make a table out
-  of its summary could look like this, which would result in a little
-  table (Table [[tabcode2]]) :
+- We extended binary PS trimming rules to the general multinomial settings. We illustrated and examined their characteristics in the visually-tractable 3-group setting.
 
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.78
-:BEAMER_opt: [T]
-:END:
 
-#+NAME: code2
-#+BEGIN_SRC R :session :exports both :results value :colnames yes :cache yes
-library(broom)
-library(dplyr)
-t1 <- tidy(round(summary(x1), 2)) 
-t2 <- tidy(round(summary(x2), 2))
-
-# This will export as a table
-rbind(t1, t2) %>%
-mutate(name=c("x1", "x2"))
-#+END_SRC
-
-\vspace{2cm}
+*** Notations                                                       :B_block:
 \small
-#+CAPTION: A table summarizing the two distributions.
-#+NAME: tabcode2
-#+RESULTS[9d0ec7348265a5cb6de39440ff06a8dbb8e5ecf1]: code2
-|---------+-------+--------+------+------+---------+------|
-| minimum |    q1 | median | mean |   q3 | maximum | name |
-|---------+-------+--------+------+------+---------+------|
-|   -2.29 | -0.49 |   0.11 | 0.14 |  0.8 |    2.47 | x1   |
-|   -2.17 | -0.45 |   0.07 | 0.13 | 0.85 |    2.23 | x2   |
-|---------+-------+--------+------+------+---------+------|
+ | Notation                                                                      | Explanation                            |
+ |-------------------------------------------------------------------------------+----------------------------------------|
+ | $i \in \left\{ 1,...,n \right\}$                                              | index for an individual                |
+ | $I = \left\{ 1,...,n \right\}$                                                | index set for entire sample            |
+ | $A_{i} \in \left\{ 0,1 \right\}$                                              | treatment variable                     |
+ | $\bX_{i}$                                                                     | covariates                             |
+ | $e_{i} = P[A_{i}=1 \vert \bX_{i}]$                                            | propensity score                       |
+ | $p = P[A_{i}=1]$                                                              | treatment prevalence                   |
+ | $\pi_{i} = \frac{\frac{e_{i}}{p}}{\frac{1 - e_{i}}{1 - p} + \frac{e_{i}}{p}}$ | preference score                       |
+ | $F^{-1}_{e_{i}\vert A_{i}}(x \vert a)$                                        | treatment-specific quantile of $e_{i}$ |
+ |-------------------------------------------------------------------------------+----------------------------------------|
+ | $A_{i} \in \left\{ 0,...,J \right\}$                                          | multinomial treatment variable         |
+ | $e_{ji} = P[A_{i}=j \vert \bX_{i}]$                                           | propensity score for treatment $j$     |
+ | $p_{j} = P[A_{i}=j]$                                                          | treatment $j$ prevalence               |
+ | $\pi_{ji} = \frac{\frac{e_{ji}}{p_{j}}}{\sum^{J}_{k=0} \frac{e_{ki}}{p_{k}}}$ | preference score for treatment $j$     |
+ | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | trimming thresholds for $J+1$ groups   |
+
+
+*** Definitions                                                     :B_block:
+
+\small
+ | Method           | Existing binary definition                                                                                                                |
+ |------------------+-------------------------------------------------------------------------------------------------------------------------------------------|
+ | Crump            | $I_{c} = \left\{ i \in I: e_{i} \in [0.1,0.9] \right\}$                                                                                   |
+ | \text{St\"urmer} | $I_{s} = \left\{ i \in I: e_{i} \in \left[F^{-1}_{e_{i}\vert A_{i}}(0.05\vert 1), F^{-1}_{e_{i}\vert A_{i}}(0.95\vert 0)\right] \right\}$ |
+ | Walker           | $I_{w} = \left\{ i \in I: \pi_{i} \in [0.3, 0.7] \right\}$                                                                                |
+
+ | Method           | Proposed multinomial definition                                                                                                                             |
+ |------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | Crump            | $I_{J,c} = \left\{ i \in I: e_{ji} \in [\alpha_{J,c},1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                                |
+ | \text{St\"urmer} | $I_{J,s} = \left\{ i \in I: e_{ji} \in \left[F^{-1}_{e_{ji}\vert A_{i}}(\alpha_{J,s}\vert j), 1.0\right] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
+ | Walker           | $I_{J,w} = \left\{ i \in I: \pi_{ji} \in [\alpha_{J,w}, 1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                             |
+
+*** Interpretation                                                  :B_block:
+
+Multinomial Crump trimming retains subjects who have all PSs above the threshold αJ,c. Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the 100αJ,c percentile of each PS in the corresponding treatment group. Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS. We only define the lower threshold. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments. These definitions reduce to the original definitions when there are only two groups.
+
 
 ** Right column                                       :BMCOL:
 :PROPERTIES:
@@ -279,7 +256,7 @@ mutate(name=c("x1", "x2"))
 
 \footnotesize
 #+NAME: code3
-#+BEGIN_SRC bash :exports both :file emacs.png  
+#+BEGIN_SRC bash :exports both :file emacs.png
 # Download emacs icon from gnu.org
 curl -0 https://www.gnu.org/software/emacs/images/emacs.png
 #+END_SRC
@@ -313,10 +290,10 @@ probability distributions (i.e., the loss of information when one
 distribution is used to approximate another). The KL divergence is thus
 defined as
 #
-\begin{align} 
-\label{eq:KL} 
+\begin{align}
+\label{eq:KL}
 \DKLPQ{P}{Q}{\|} = \sumin \Xoi{P} \log \frakPQ{P}{Q}
-\end{align} 
+\end{align}
 #
 with $P$ and $Q$ being two probability distribution functions and $n$
 the number of sample points. Since $\DKLPQ{P}{Q}{\|}$ is not equal to
@@ -324,8 +301,8 @@ $\DKLPQ{Q}{P}{\|}$, a symmetric variation of the KL divergence can be
 derived as follows:
 #
 \small
-\begin{align} 
-\label{eq:KL2} 
+\begin{align}
+\label{eq:KL2}
 \DKLPQ{P}{Q}{,} = \sumin \Big(\Xoi{P} \log \frakPQ{P}{Q} + \Xoi{Q} \log \frakPQ{Q}{P} \Big).
 \end{align}
 
@@ -377,6 +354,15 @@ plot(d2, col="blue", lwd=3)
 :BEAMER_env: block
 :END:
 - This example is meant to show how versatile org-mode is
-- Scientific posters can be produced with a simple text editor 
+- Scientific posters can be produced with a simple text editor
 
-	
+*** Bibliography                                                    :B_block:
+   :PROPERTIES:
+   :BEAMER_opt: allowframebreaks,label=,t
+   :END:
+\tiny
+# To remove "References" section header
+\renewcommand{\section}[2]{}
+# Following lines must be left-aligned without preceding spaces.
+bibliographystyle:apalike
+bibliography:~/.emacs.d/misc/zotero.bib
