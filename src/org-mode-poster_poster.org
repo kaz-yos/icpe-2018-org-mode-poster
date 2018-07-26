@@ -1,5 +1,5 @@
 #+startup: beamer
-#+TITLE: Using org-mode for scientific posters 
+#+TITLE: Multinomial Extension of Propensity Score Trimming Methods: A Simulation Study
 * Preamble                                                    :ignore:
 ** General comments                                           :ignore:
 # ----------------------------------------------------------------------
@@ -45,10 +45,10 @@
 # ----------------------------------------------------------------------
 ** Latex macros                                               :ignore:
 # ----------------------------------------------------------------------
-#+LATEX_HEADER: \newcommand{\auth}{Philipp Homan, MD, PhD}
-#+LATEX_HEADER: \newcommand{\authemail}{phoman1@northwell.edu}
-#+LATEX_HEADER: \newcommand{\authtwitter}{@philipphoman}
-#+LATEX_HEADER: \newcommand{\authgithub}{github.com/philipphoman}
+#+LATEX_HEADER: \newcommand{\auth}{Kazuki Yoshida, MD, MPH, MS}
+#+LATEX_HEADER: \newcommand{\authemail}{kazukiyoshida@mail.harvard.edu}
+#+LATEX_HEADER: \newcommand{\authtwitter}{@kaz_yos}
+#+LATEX_HEADER: \newcommand{\authgithub}{github.com/kaz-yos}
 # ----------------------------------------------------------------------
 ** Authors and affiliations                                   :ignore:
 # ----------------------------------------------------------------------
