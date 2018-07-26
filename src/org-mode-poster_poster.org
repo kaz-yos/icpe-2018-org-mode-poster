@@ -41,6 +41,7 @@
 #+LATEX_HEADER: \newcommand{\Xoi}[1]{#1(i)}
 #+LATEX_HEADER: \newcommand{\frakPQ}[2]{\frac{\Xoi{#1}}{\Xoi{#2}}}
 #+LATEX_HEADER: \newcommand{\DKLPQ}[3]{D_{\mathrm{KL}}(#1 #3 #2)}
+#+LATEX_HEADER: \input{\string~/.emacs.d/misc/GrandMacros}
 #+LATEX_HEADER: \date{}
 # ----------------------------------------------------------------------
 ** Latex macros                                               :ignore:
