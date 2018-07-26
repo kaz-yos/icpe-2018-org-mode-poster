@@ -181,7 +181,7 @@
 :BEAMER_col: 0.45
 :BEAMER_opt: [t]
 :END:
-*** Background                                        :B_block:
+*** Background                                                      :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -247,12 +247,13 @@ Multinomial Crump trimming retains subjects who have all PSs above the threshold
 [[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets.png]]
 
 
-*** Conclusions                                            :B_block:
+*** Conclusions                                                     :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-- This example is meant to show how versatile org-mode is
-- Scientific posters can be produced with a simple text editor
+- We developed multinomial generalization of existing PS trimming rules.
+- Maybe useful as sensitivity analysis.
+
 
 *** Bibliography                                                    :B_block:
    :PROPERTIES:
