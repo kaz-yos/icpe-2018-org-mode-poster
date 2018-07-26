@@ -53,7 +53,7 @@
 # ----------------------------------------------------------------------
 ** Authors and affiliations                                   :ignore:
 # ----------------------------------------------------------------------
-#+LATEX_HEADER: \author{
+#+LATEX_HEADER: \author{\normalsize{
 #+LATEX_HEADER: Kazuki Yoshida$^{1}$
 #+LATEX_HEADER: Daniel H Solomon$^{2}$
 #+LATEX_HEADER: Sebastien Haneuse$^{1}$
@@ -62,9 +62,8 @@
 #+LATEX_HEADER: Sara K Tedeschi$^{2}$
 #+LATEX_HEADER: Houchen Lyu$^{2}$
 #+LATEX_HEADER: Sonia Hernandez-Diaz$^{1}$
-#+LATEX_HEADER: Robert J Glynn$^{1}$
+#+LATEX_HEADER: Robert J Glynn$^{1}$}
 #+LATEX_HEADER: \\
-#+LATEX_HEADER: \vspace{5mm}
 #+LATEX_HEADER: \normalsize{$^{1}$ Harvard T.H. Chan School of Public Health, Boston, MA, USA; }
 #+LATEX_HEADER: \normalsize{$^{2}$ Brigham and Women's Hospital, Boston, MA, USA}
 #+LATEX_HEADER: }
@@ -240,114 +239,13 @@ Multinomial Crump trimming retains subjects who have all PSs above the threshold
 :BEAMER_col: 0.45
 :BEAMER_opt: [t]
 :END:
-*** Graphics                                          :B_block:
+*** Empirical data                                                  :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+#+ATTR_LATEX: :height 0.8\textheight :width 0.8\textwidth :options page=1,keepaspectratio :center t
+[[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets.png]]
 
-- We can use shell scripting to grab an image with curl from the
-  internet (Fig. [[figcode3]]):
-
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.78
-:BEAMER_opt: [T]
-:END:
-
-\footnotesize
-#+NAME: code3
-#+BEGIN_SRC bash :exports both :file emacs.png
-# Download emacs icon from gnu.org
-curl -0 https://www.gnu.org/software/emacs/images/emacs.png
-#+END_SRC
-\normalsize
-
-\vspace{2cm}
-
-#+ATTR_LATEX: :width 0.2\textwidth :options page=9
-#+NAME: figcode3
-#+CAPTION: This is the downloaded image.
-#+RESULTS: code3
-[[file:emacs.png]]
-
-*** Math                                                   :B_block:
-:PROPERTIES:
-:BEAMER_env: block
-:END:
-
-- Let's describe how to compute the distance between the
-  two simulated distributions $x1$ and $x2$ from before:
-
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.78
-:BEAMER_opt: [T]
-:END:
-
-\small
-The Kullback-Leibler (KL) divergence measures the difference between two
-probability distributions (i.e., the loss of information when one
-distribution is used to approximate another). The KL divergence is thus
-defined as
-#
-\begin{align}
-\label{eq:KL}
-\DKLPQ{P}{Q}{\|} = \sumin \Xoi{P} \log \frakPQ{P}{Q}
-\end{align}
-#
-with $P$ and $Q$ being two probability distribution functions and $n$
-the number of sample points. Since $\DKLPQ{P}{Q}{\|}$ is not equal to
-$\DKLPQ{Q}{P}{\|}$, a symmetric variation of the KL divergence can be
-derived as follows:
-#
-\small
-\begin{align}
-\label{eq:KL2}
-\DKLPQ{P}{Q}{,} = \sumin \Big(\Xoi{P} \log \frakPQ{P}{Q} + \Xoi{Q} \log \frakPQ{Q}{P} \Big).
-\end{align}
-
-*** Columns                                                :B_block:
-:PROPERTIES:
-:BEAMER_env: block
-:END:
-
-**** Left
-:PROPERTIES:
-:BEAMER_col: 0.48
-:BEAMER_opt: [T]
-:END:
-
-#+NAME: codeleft
-#+BEGIN_SRC R :file 4l.png :session :exports results :results graphics
-d1 <- density(x1)
-plot(d1, col="red", lwd=3)
-#+END_SRC
-
-
-\captionsetup{justification=justified,width=.85\linewidth}
-#+NAME: figcodeleft
-#+CAPTION: This is the left figure of a two-column block, showing
-#+CAPTION: the density of $x1$.
-#+RESULTS: codeleft
-[[file:4l.png]]
-
-**** Right
-:PROPERTIES:
-:BEAMER_col: 0.48
-:BEAMER_opt: [T]
-:END:
-
-#+NAME: coderight
-#+BEGIN_SRC R  :file 4r.png :session :exports results :results graphics
-d2 <- density(x2)
-plot(d2, col="blue", lwd=3)
-#+END_SRC
-
-\captionsetup{justification=justified,width=.85\linewidth}
-#+NAME: figcoderight
-#+CAPTION: This is the right figure. It shows the density of $x2$.
-#+RESULTS: coderight
-[[file:4r.png]]
 
 *** Conclusions                                            :B_block:
 :PROPERTIES:
