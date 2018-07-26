@@ -54,13 +54,13 @@
 ** Authors and affiliations                                   :ignore:
 # ----------------------------------------------------------------------
 #+LATEX_HEADER: \author{
-#+LATEX_HEADER: Philipp Homan$^{1}$ 
+#+LATEX_HEADER: Kazuki Yoshida$^{1}$
 #+LATEX_HEADER: \\
 #+LATEX_HEADER: \vspace{5mm}
-#+LATEX_HEADER: \normalsize{$^{1}$Department of Psychiatry,} 
-#+LATEX_HEADER: \normalsize{The Donald and Barbara Zucker}
-#+LATEX_HEADER: \normalsize{School of Medicine at Northwell/Hofstra,}
-#+LATEX_HEADER: \normalsize{Hempstead, NY}
+#+LATEX_HEADER: \normalsize{$^{1}$Department of Epidemiology,}
+#+LATEX_HEADER: \normalsize{$^{2}$Department of Biostatistics,}
+#+LATEX_HEADER: \normalsize{Harvard T.H. Chan School of Public Health, Boston, MA, USA}
+#+LATEX_HEADER: \normalsize{}
 #+LATEX_HEADER: }
 # ----------------------------------------------------------------------
 ** Buffer-wide source code blocks                             :ignore:
