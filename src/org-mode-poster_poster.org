@@ -243,11 +243,7 @@ Please note we defined a PS for each treatment option (generalized PS cite:imben
 |  $J+1$ | $J$ | $\frac{1}{J+1}\frac{1}{5}$ |     $\frac{1}{J+1}\frac{1}{10}$ | $\frac{1}{J+1}\frac{3}{5}$ |
 - Crump lower bounds are on the multinomial propensity score, Stürmer lower bounds are on multinomial propensity score quantile, and Walker lower bounds are on the multinomial preference score.
 
-** Right column                                       :BMCOL:
-:PROPERTIES:
-:BEAMER_col: 0.45
-:BEAMER_opt: [t]
-:END:
+
 *** Empirical Data Illustration                                     :B_block:
 :PROPERTIES:
 :BEAMER_env: block
@@ -256,8 +252,20 @@ Please note we defined a PS for each treatment option (generalized PS cite:imben
 - We used several characteristics datasets to illustrate how these trimming methods behave with three groups.
 - These triangles are ternary scatter plots (cite:HamiltonggternExtensionggplot22017) of individuals in three groups. Being close to a corner means a high propensity of being in that group.
 - The inner triangles indicate the region of retained individuals.
-#+ATTR_LATEX: :height 0.8\textheight :width 0.8\textwidth :options page=1,keepaspectratio :center t
-[[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets.png]]
+
+
+** Right column                                       :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.45
+:BEAMER_opt: [t]
+:END:
+*** Empirical Data Illustration (Continued)                         :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+\small
+#+ATTR_LATEX: :height 0.6\textheight :width 0.6\textwidth :options page=1,keepaspectratio :center t
+[[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets_manual_trim.png]]
 - The groups are the following
 | Example        | Group 0            | Group 1            | Group 2       |
 |----------------+--------------------+--------------------+---------------|
@@ -266,6 +274,15 @@ Please note we defined a PS for each treatment option (generalized PS cite:imben
 | Anti-diabetics | Metf.+Sulfonylurea | Metf.+GLP1 Agonist | Metf.+Insulin |
 - When the groups are similar in patient characteristics most people were kept in the trimmed cohort.
 - Stürmer's and Walker's methods adapted to the skewness in the distributions.
+
+*** Simulation study                                                :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+- We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
+#+ATTR_LATEX: :height 0.6\textheight :width 0.6\textwidth :options page=2,keepaspectratio :center t
+[[../../../_trimming_stats/code/out/bias.pdf]]
+
 
 *** Conclusions                                                     :B_block:
 :PROPERTIES:
