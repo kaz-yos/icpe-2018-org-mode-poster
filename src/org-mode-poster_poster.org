@@ -200,29 +200,17 @@
  |-------------------------------------------------------------------------------+----------------------------------------|
  | $i \in \left\{ 1,...,n \right\}$                                              | index for an individual                |
  | $I = \left\{ 1,...,n \right\}$                                                | index set for entire sample            |
- | $A_{i} \in \left\{ 0,1 \right\}$                                              | treatment variable                     |
- | $\bX_{i}$                                                                     | covariates                             |
- | $e_{i} = P[A_{i}=1 \vert \bX_{i}]$                                            | propensity score                       |
- | $p = P[A_{i}=1]$                                                              | treatment prevalence                   |
- | $\pi_{i} = \frac{\frac{e_{i}}{p}}{\frac{1 - e_{i}}{1 - p} + \frac{e_{i}}{p}}$ | preference score                       |
- | $F^{-1}_{e_{i}\vert A_{i}}(x \vert a)$                                        | treatment-specific quantile of $e_{i}$ |
- |-------------------------------------------------------------------------------+----------------------------------------|
  | $A_{i} \in \left\{ 0,...,J \right\}$                                          | multinomial treatment variable         |
+ | $\bX_{i}$                                                                     | covariates                             |
  | $e_{ji} = P[A_{i}=j \vert \bX_{i}]$                                           | propensity score for treatment $j$     |
  | $p_{j} = P[A_{i}=j]$                                                          | treatment $j$ prevalence               |
  | $\pi_{ji} = \frac{\frac{e_{ji}}{p_{j}}}{\sum^{J}_{k=0} \frac{e_{ki}}{p_{k}}}$ | preference score for treatment $j$     |
+ | $F^{-1}_{e_{i}\vert A_{i}}(x \vert a)$                                        | treatment-specific quantile of $e_{i}$ |
  | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | trimming thresholds for $J+1$ groups   |
 
 
-*** Definitions                                                     :B_block:
-
+*** Definitions of trimming methods                                 :B_block:
 \small
- | Method           | Existing binary definition                                                                                                                |
- |------------------+-------------------------------------------------------------------------------------------------------------------------------------------|
- | Crump            | $I_{c} = \left\{ i \in I: e_{i} \in [0.1,0.9] \right\}$                                                                                   |
- | \text{St\"urmer} | $I_{s} = \left\{ i \in I: e_{i} \in \left[F^{-1}_{e_{i}\vert A_{i}}(0.05\vert 1), F^{-1}_{e_{i}\vert A_{i}}(0.95\vert 0)\right] \right\}$ |
- | Walker           | $I_{w} = \left\{ i \in I: \pi_{i} \in [0.3, 0.7] \right\}$                                                                                |
-
  | Method           | Proposed multinomial definition                                                                                                                             |
  |------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------|
  | Crump            | $I_{J,c} = \left\{ i \in I: e_{ji} \in [\alpha_{J,c},1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                                |
