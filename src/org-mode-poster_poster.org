@@ -206,7 +206,7 @@
  | $F^{-1}_{e_{i}\vert A_{i}}(x \vert a)$                                        | treatment-specific quantile of $e_{i}$ |
  | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | trimming thresholds for $J+1$ groups   |
 
-Please note we defined a PS for each treatment option (generalized PS cite:imbens_role_2000).
+Please note we defined a PS for each treatment option.
 
 
 *** Definitions and Explanation                                     :B_block:
@@ -250,7 +250,7 @@ Please note we defined a PS for each treatment option (generalized PS cite:imben
 :END:
 \small
 - We used several characteristics datasets to illustrate how these trimming methods behave with three groups.
-- These triangles are ternary scatter plots (cite:HamiltonggternExtensionggplot22017) of individuals in three groups. Being close to a corner means a high propensity of being in that group.
+- These triangles are ternary scatter plots of individuals in three groups. Being close to a corner means a high propensity of being in that group.
 - The inner triangles indicate the region of retained individuals.
 
 
@@ -279,10 +279,12 @@ Please note we defined a PS for each treatment option (generalized PS cite:imben
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+\small
 - We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
 #+ATTR_LATEX: :height 0.6\textheight :width 0.6\textwidth :options page=2,keepaspectratio :center t
 [[../../../_trimming_stats/code/out/bias.pdf]]
-
+- The X-axis represents increasing level of trimming. The Y-axis is bias on the log rate ratio scale (0 is unbiased).
+- Bias was reduced by all methods, but Stürmer's and Walker's methods more successfully reduced bias when group sizes were highly imbalanced.
 
 *** Conclusions                                                     :B_block:
 :PROPERTIES:
