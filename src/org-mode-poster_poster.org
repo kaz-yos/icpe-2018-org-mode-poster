@@ -185,16 +185,14 @@
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-- cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walker_tool_2013 have proposed PS trimming methods for binary exposures.
+- cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walkerToolAssessingFeasibility2013 have proposed PS trimming methods for binary exposures.
 
-
-- In particular, cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution among those who received treatment on contrary to the prediction based on measured confounders.
-
+- cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution.
 
 - We extended binary PS trimming rules to the general multinomial settings. We illustrated and examined their characteristics in the visually-tractable 3-group setting.
 
 
-*** Notations                                                       :B_block:
+*** Notations and Definitions                                       :B_block:
 \small
  | Notation                                                                      | Explanation                            |
  |-------------------------------------------------------------------------------+----------------------------------------|
@@ -208,40 +206,76 @@
  | $F^{-1}_{e_{i}\vert A_{i}}(x \vert a)$                                        | treatment-specific quantile of $e_{i}$ |
  | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | trimming thresholds for $J+1$ groups   |
 
+Please note we defined a PS for each treatment option (generalized PS cite:imbens_role_2000).
 
-*** Definitions of trimming methods                                 :B_block:
+
+*** Definitions and Explanation                                     :B_block:
 \small
- | Method           | Proposed multinomial definition                                                                                                                             |
- |------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------|
- | Crump            | $I_{J,c} = \left\{ i \in I: e_{ji} \in [\alpha_{J,c},1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                                |
- | \text{St\"urmer} | $I_{J,s} = \left\{ i \in I: e_{ji} \in \left[F^{-1}_{e_{ji}\vert A_{i}}(\alpha_{J,s}\vert j), 1.0\right] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
- | Walker           | $I_{J,w} = \left\{ i \in I: \pi_{ji} \in [\alpha_{J,w}, 1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                             |
+ | Method  | Proposed multinomial definition                                                                                                                             |
+ |---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | Crump   | $I_{J,c} = \left\{ i \in I: e_{ji} \in [\alpha_{J,c},1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                                |
+ | Stürmer | $I_{J,s} = \left\{ i \in I: e_{ji} \in \left[F^{-1}_{e_{ji}\vert A_{i}}(\alpha_{J,s}\vert j), 1.0\right] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
+ | Walker  | $I_{J,w} = \left\{ i \in I: \pi_{ji} \in [\alpha_{J,w}, 1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                             |
 
-*** Interpretation                                                  :B_block:
+- Multinomial Crump trimming retains subjects who have all PSs above the threshold $\alpha_{J,c}$.
 
-Multinomial Crump trimming retains subjects who have all PSs above the threshold αJ,c. Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the 100αJ,c percentile of each PS in the corresponding treatment group. Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS. We only define the lower threshold. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments. These definitions reduce to the original definitions when there are only two groups.
+- Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the $100 \alpha_{J,s}$ percentile of each PS in the corresponding treatment group.
 
+- Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS.
+
+
+- We only define the lower threshold. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments (see figure).
+
+- These definitions reduce to the original definitions when there are only two groups.
+
+*** Thresholds                                                      :B_block:
+\small
+- We need thresholds ($\alpha_{J,c}$, $\alpha_{J,s}$, and $\alpha_{J,w}$) that change with the number of groups ($J+1$).
+- We used the following as working definitions.
+| Groups | $J$ |     Crump ($\alpha_{J,c}$) | \text{St\"urmer} (\alpha_{J,s}) |    Walker ($\alpha_{J,w}$) |
+|--------+-----+----------------------------+---------------------------------+----------------------------|
+|      2 |   1 |                       0.10 |                           0.050 |                       0.30 |
+|      3 |   2 |                       0.07 |                           0.033 |                       0.20 |
+|      4 |   3 |                       0.05 |                           0.025 |                       0.15 |
+|      5 |   4 |                       0.04 |                           0.020 |                       0.12 |
+|      6 |   5 |                       0.03 |                           0.017 |                       0.10 |
+|        |     |                   $\vdots$ |                                 |                            |
+|  $J+1$ | $J$ | $\frac{1}{J+1}\frac{1}{5}$ |     $\frac{1}{J+1}\frac{1}{10}$ | $\frac{1}{J+1}\frac{3}{5}$ |
+- Crump lower bounds are on the multinomial propensity score, Stürmer lower bounds are on multinomial propensity score quantile, and Walker lower bounds are on the multinomial preference score.
 
 ** Right column                                       :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.45
 :BEAMER_opt: [t]
 :END:
-*** Empirical data                                                  :B_block:
+*** Empirical Data Illustration                                     :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+\small
+- We used several characteristics datasets to illustrate how these trimming methods behave with three groups.
+- These triangles are ternary scatter plots (cite:HamiltonggternExtensionggplot22017) of individuals in three groups. Being close to a corner means a high propensity of being in that group.
+- The inner triangles indicate the region of retained individuals.
 #+ATTR_LATEX: :height 0.8\textheight :width 0.8\textwidth :options page=1,keepaspectratio :center t
 [[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets.png]]
-
+- The groups are the following
+| Example        | Group 0            | Group 1            | Group 2       |
+|----------------+--------------------+--------------------+---------------|
+| Coxibs         | Celecoxib          | Rofecoxib          | Valdecoxib    |
+| nsNSAIDs       | Naproxen           | Ibuprofen          | Diclofenac    |
+| Anti-diabetics | Metf.+Sulfonylurea | Metf.+GLP1 Agonist | Metf.+Insulin |
+- When the groups are similar in patient characteristics most people were kept in the trimmed cohort.
+- Stürmer's and Walker's methods adapted to the skewness in the distributions.
 
 *** Conclusions                                                     :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-- We developed multinomial generalization of existing PS trimming rules.
-- Maybe useful as sensitivity analysis.
+- We proposed a multinomial extension of the existing two-group PS trimming methods.
 
+- The extensions of Stürmer and Walker’s PS trimming methods reduced bias in 3-group exposure settings even with highly imbalanced treatment frequencies.
+
+- In practice, examining how effect estimates vary at various trimming thresholds can be a useful sensitivity analysis to assess potential unmeasured confounding in the tails of a multinomial PS.
 
 *** Bibliography                                                    :B_block:
    :PROPERTIES:
