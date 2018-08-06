@@ -220,5 +220,3 @@
 (require 'org-ref-pubmed)
 (require 'org-ref-wos)
 (require 'org-ref-scopus)
-(setq reftex-default-bibliography '("master.bib"))
-(setq org-ref-default-bibliography '("master.bib"))
