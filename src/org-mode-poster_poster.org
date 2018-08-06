@@ -223,8 +223,7 @@ Please note we defined a PS for each treatment option.
 
 - Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS.
 
-
-- We only define the lower threshold. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments (see figure).
+- We only need the lower threshold for each PS. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments (see figure).
 
 - These definitions reduce to the original definitions when there are only two groups.
 
