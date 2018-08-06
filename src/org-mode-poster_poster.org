@@ -192,7 +192,7 @@
 - We extended binary PS trimming rules to the general multinomial settings. We illustrated and examined their characteristics in the visually-tractable 3-group setting.
 
 
-*** Notations and Definitions                                       :B_block:
+*** Notations                                                       :B_block:
 \small
  | Notation                                                                      | Explanation                            |
  |-------------------------------------------------------------------------------+----------------------------------------|
@@ -231,14 +231,13 @@ Please note we defined a PS for each treatment option.
 *** Thresholds                                                      :B_block:
 \small
 - We need thresholds ($\alpha_{J,c}$, $\alpha_{J,s}$, and $\alpha_{J,w}$) that change with the number of groups ($J+1$).
-- We used the following as working definitions.
+- We used the following as working definitions for illustration.
 | Groups | $J$ |     Crump ($\alpha_{J,c}$) | \text{St\"urmer} (\alpha_{J,s}) |    Walker ($\alpha_{J,w}$) |
 |--------+-----+----------------------------+---------------------------------+----------------------------|
 |      2 |   1 |                       0.10 |                           0.050 |                       0.30 |
 |      3 |   2 |                       0.07 |                           0.033 |                       0.20 |
 |      4 |   3 |                       0.05 |                           0.025 |                       0.15 |
 |      5 |   4 |                       0.04 |                           0.020 |                       0.12 |
-|      6 |   5 |                       0.03 |                           0.017 |                       0.10 |
 |        |     |                   $\vdots$ |                                 |                            |
 |  $J+1$ | $J$ | $\frac{1}{J+1}\frac{1}{5}$ |     $\frac{1}{J+1}\frac{1}{10}$ | $\frac{1}{J+1}\frac{3}{5}$ |
 - Crump lower bounds are on the multinomial propensity score, Stürmer lower bounds are on multinomial propensity score quantile, and Walker lower bounds are on the multinomial preference score.
@@ -263,9 +262,15 @@ Please note we defined a PS for each treatment option.
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-\small
-#+ATTR_LATEX: :height 0.6\textheight :width 0.6\textwidth :options page=1,keepaspectratio :center t
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.6\textwidth :options page=1,keepaspectratio :center nil
 [[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets_manual_trim.png]]
+#+ATTR_LATEX: :width 0.3\textwidth :options page=1,keepaspectratio :center nil
+[[../lib/ggtern_grids_points.png]]
+#+END_CENTER
+
+\small
 - The groups are the following
 | Example        | Group 0            | Group 1            | Group 2       |
 |----------------+--------------------+--------------------+---------------|
