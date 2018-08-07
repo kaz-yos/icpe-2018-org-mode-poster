@@ -261,14 +261,42 @@ Please note we defined a PS for each treatment option.
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
 
- #+BEGIN_CENTER
- #+ATTR_LATEX: :width 0.7\textwidth :options page=1,keepaspectratio :center nil
- [[../lib/three_datasets_600dpi_trimmed.png]]
- #+ATTR_LATEX: :width 0.25\textwidth :options page=1,keepaspectratio :center nil
- [[../lib/ternary_coordinate_and_table_trimmed.png]]
- #+END_CENTER
+***** @@latex:@@                                                      :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.70
+      :END:
+   #+ATTR_LATEX: :width 1.0\textwidth :options page=1,keepaspectratio :center t
+   [[../lib/three_datasets_600dpi_trimmed.png]]
 
+***** @@latex:@@                                                      :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.30
+      :END:
+   #+ATTR_LATEX: :width 1.0\textwidth :options page=1,keepaspectratio :center t
+   [[../lib/ternary_coordinate_and_table_trimmed.png]]
+#    [[../lib/ggtern_grids.pdf]]
+# \small
+# |     | $e_{0i}$ | $e_{1i}$ | $e_{2i}$ |
+# |-----+----------+----------+----------|
+# | /   | <c>      | <c>      | <c>      |
+# | (a) | $1$      | $0$      | $0$      |
+# | (b) | $0$      | $1$      | $0$      |
+# | (c) | $0$      | $0$      | $1$      |
+# | (d) | $1/3$    | $1/3$    | $1/3$    |
+# | (e) | $1/2$    | $1/2$    | $0$      |
+# | (f) | $1/2$    | $0$      | $1/2$    |
+# | (g) | $0$      | $1/2$    | $1/2$    |
+# | (h) | $0.1$    | $0.7$    | $0.2$    |
+
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
 \small
 - When the groups are similar in patient characteristics most people were kept in the trimmed cohort.
 - Stürmer's and Walker's methods adapted to the skewness in the distributions.
