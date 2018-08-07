@@ -230,7 +230,7 @@ Please note we defined a PS for each treatment option.
 *** Provisional Thresholds                                          :B_block:
 \small
 - We need thresholds ($\alpha_{J,c}$, $\alpha_{J,s}$, and $\alpha_{J,w}$) that change with the number of groups ($J+1$).
-- We used the following as working definitions for illustration.
+- We used the following values as provisional thresholds for illustration.
 | Groups | $J$ |     Crump ($\alpha_{J,c}$) | \text{St\"urmer} (\alpha_{J,s}) |    Walker ($\alpha_{J,w}$) |
 |--------+-----+----------------------------+---------------------------------+----------------------------|
 |      2 |   1 |                       0.10 |                           0.050 |                       0.30 |
@@ -343,7 +343,7 @@ Please note we defined a PS for each treatment option.
    :PROPERTIES:
    :BEAMER_env: exampleblock
    :END:
-- Bias was reduced by all methods, but Stürmer's and Walker's methods more successfully reduced bias when group sizes were highly imbalanced.
+- Bias was reduced by all methods, but Stürmer's and Walker's methods reduced bias more successfully when group sizes were highly imbalanced.
 
 *** Conclusions                                                     :B_block:
 :PROPERTIES:
