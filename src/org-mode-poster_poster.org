@@ -281,7 +281,7 @@ Please note we defined a PS for each treatment option.
 - We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
 #+ATTR_LATEX: :height 0.6\textheight :width 0.6\textwidth :options page=2,keepaspectratio :center t
 [[../../../_trimming_stats/code/out/bias.pdf]]
-- The X-axis represents increasing level of trimming. The Y-axis is bias on the log rate ratio scale (0 is unbiased).
+- The X-axis represents increasing level of trimming. The Y-axis is bias on the log rate ratio scale (zero is unbiased).
 - Bias was reduced by all methods, but Stürmer's and Walker's methods more successfully reduced bias when group sizes were highly imbalanced.
 
 *** Conclusions                                                     :B_block:
