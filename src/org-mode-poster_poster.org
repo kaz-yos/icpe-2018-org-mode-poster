@@ -344,6 +344,7 @@ Please note we defined a PS for each treatment option.
    :BEAMER_env: exampleblock
    :END:
 - Bias was reduced by all methods, but Stürmer's and Walker's methods reduced bias more successfully when group sizes were highly imbalanced.
+- All methods reduced variance of the IPTW estimator, but not MW and OW estimators.
 
 *** Conclusions                                                     :B_block:
 :PROPERTIES:
