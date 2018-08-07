@@ -261,6 +261,7 @@ Please note we defined a PS for each treatment option.
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+\vspace{-2cm}
 **** @@latex:@@
    :PROPERTIES:
    :BEAMER_env: exampleblock
@@ -308,6 +309,7 @@ Please note we defined a PS for each treatment option.
 \small
 - We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
 
+\vspace{-2cm}
 **** @@latex:@@
    :PROPERTIES:
    :BEAMER_env: exampleblock
