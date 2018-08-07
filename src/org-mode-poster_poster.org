@@ -279,9 +279,40 @@ Please note we defined a PS for each treatment option.
 :END:
 \small
 - We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
-#+ATTR_LATEX: :height 0.6\textheight :width 0.6\textwidth :options page=2,keepaspectratio :center t
+
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
+# exampleblock
+***** @@latex:@@                                                         :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.8
+      :END:
+#+ATTR_LATEX: :height 1.0\textheight :width 1.0\textwidth :options page=2,keepaspectratio :center t
 [[../../../_trimming_stats/code/out/bias.pdf]]
-- The X-axis represents increasing level of trimming. The Y-axis is bias on the log rate ratio scale (zero is unbiased).
+
+***** @@latex:@@                                                         :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.2
+      :END:
+\tiny
+*X-axis*: increasing level of trimming\\
+*Y-axis*: bias on the log rate ratio scale (zero is unbiased)\\
+\nbsp{}\\
+*1vs0*: Group 1 vs Group 0\\
+*2vs0*: Group 2 vs Group 0\\
+*2vs1*: Group 2 vs Group 1\\
+\nbsp{}\\
+*Unadj*: Unadjusted\\
+*IPTW*: Inverse probability of treatment weights\\
+*MW*: Matching weights\\
+*OW*: Overlap weights\\
+
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
 - Bias was reduced by all methods, but Stürmer's and Walker's methods more successfully reduced bias when group sizes were highly imbalanced.
 
 *** Conclusions                                                     :B_block:
