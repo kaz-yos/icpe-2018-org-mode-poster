@@ -178,7 +178,7 @@
 
 ** Left column                                        :BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.47
+:BEAMER_col: 0.48
 :BEAMER_opt: [t]
 :END:
 *** Background                                                      :B_block:
@@ -254,7 +254,7 @@ Please note we defined a PS for each treatment option.
 
 ** Right column                                       :BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.47
+:BEAMER_col: 0.48
 :BEAMER_opt: [t]
 :END:
 *** Empirical Data Illustration (Continued)                         :B_block:
