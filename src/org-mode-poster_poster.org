@@ -189,7 +189,7 @@
 
 - cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution.
 
-- We extended binary PS trimming rules to the general multinomial settings. We illustrated and examined their characteristics in the visually-tractable 3-group setting.
+- We extended binary PS trimming methods to the general multinomial settings. We illustrated and examined their characteristics in the visually-tractable 3-group setting.
 
 
 *** Notations                                                       :B_block:
