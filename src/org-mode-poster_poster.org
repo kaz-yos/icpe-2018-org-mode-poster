@@ -37,10 +37,8 @@
 #+LATEX_HEADER: \usepackage{listings}
 #+LATEX_HEADER: \usepackage{textcomp}
 #+LATEX_HEADER: \usepackage{bibentry}
-#+LATEX_HEADER: \newcommand\sumin{\sum_{i=1}^{n}}
-#+LATEX_HEADER: \newcommand{\Xoi}[1]{#1(i)}
-#+LATEX_HEADER: \newcommand{\frakPQ}[2]{\frac{\Xoi{#1}}{\Xoi{#2}}}
-#+LATEX_HEADER: \newcommand{\DKLPQ}[3]{D_{\mathrm{KL}}(#1 #3 #2)}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usetikzlibrary{positioning,shapes.geometric}
 #+LATEX_HEADER: \input{\string~/.emacs.d/misc/GrandMacros}
 #+LATEX_HEADER: \date{}
 # ----------------------------------------------------------------------
@@ -326,6 +324,52 @@ Please note we defined a PS for each treatment option.
       :PROPERTIES:
       :BEAMER_col: 0.3
       :END:
+
+\tiny
+\begin{align*}
+  &\text{Measured covariates}\\
+  \bX_{i}^{m} &= \begin{bmatrix}
+    X_{1i} & X_{2i} & X_{3i} & X_{4i} & X_{5i} & X_{6i} \\
+  \end{bmatrix}^{T}\\
+  &\text{Unmeasured covariates}\\
+  \bX_{i}^{u} &= \begin{bmatrix}
+    X_{7i} & X_{8i} & X_{9i}\\
+  \end{bmatrix}^{T}
+\end{align*}
+
+\scriptsize
+\begin{center}
+  \begin{tikzpicture}[%
+    ->,
+    shorten >=2pt,
+    >=stealth,
+    node distance=1cm,
+    pil/.style={
+      ->,
+      thick,
+      shorten =2pt,}
+    ]
+    %% Nodes
+    \node (Xm) {$\bX^{m}_{i}$};
+    \node[below = 0.3cm of Xm] (Xu) {$\bX^{u}_{i}$};
+    \node[below left  = 2cm and 1.5cm of Xm] (A) {$A_i$};
+    \node[below right = 2cm and 1.5cm of Xm] (Y) {$Y_i$};
+    %% Xm to Xu Effect Association
+    \draw[very thick] (Xm) -> (Xu);
+    %% Treatment Effect Association
+    \draw[very thick] (A) -> (Y);
+    %% Confounder-Exposure Association
+    \draw[very thick] (Xu) -> (A);
+    \draw[very thick] (Xm) -> (A);
+    %% Confounder-Outcome Association
+    \draw[very thick] (Xu) -> (Y);
+    \draw[very thick] (Xm) -> (Y);
+  \end{tikzpicture}
+\end{center}
+\tiny
+The unmeasured confounders were made more prevalent in the three tails of the PS distribution. $A_{i}$ was a three-valued treatment and $Y_{i}$ was a Poisson outcome.\\
+\nbsp{}\\
+
 \tiny
 *X-axis*: increasing level of trimming\\
 *Y-axis*: bias on the log rate ratio scale (zero is unbiased)\\
