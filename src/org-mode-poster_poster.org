@@ -317,14 +317,14 @@ Please note we defined a PS for each treatment option.
 # exampleblock
 ***** @@latex:@@                                                         :BMCOL:
       :PROPERTIES:
-      :BEAMER_col: 0.8
+      :BEAMER_col: 0.7
       :END:
 #+ATTR_LATEX: :height 1.0\textheight :width 1.0\textwidth :options page=2,keepaspectratio :center t
 [[../../../_trimming_stats/code/out/bias.pdf]]
 
 ***** @@latex:@@                                                         :BMCOL:
       :PROPERTIES:
-      :BEAMER_col: 0.2
+      :BEAMER_col: 0.3
       :END:
 \tiny
 *X-axis*: increasing level of trimming\\
