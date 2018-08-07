@@ -227,7 +227,7 @@ Please note we defined a PS for each treatment option.
 
 - These definitions reduce to the original definitions when there are only two groups.
 
-*** Thresholds                                                      :B_block:
+*** Provisional Thresholds                                          :B_block:
 \small
 - We need thresholds ($\alpha_{J,c}$, $\alpha_{J,s}$, and $\alpha_{J,w}$) that change with the number of groups ($J+1$).
 - We used the following as working definitions for illustration.
@@ -247,9 +247,9 @@ Please note we defined a PS for each treatment option.
 :BEAMER_env: block
 :END:
 \small
-- We used several characteristics datasets to illustrate how these trimming methods behave with three groups.
-- These triangles are ternary scatter plots of individuals in three groups. Being close to a corner means a high propensity of being in that group.
-- The inner triangles indicate the region of retained individuals.
+- We used several characteristics observational datasets to illustrate how these trimming methods behave with three groups.
+- These triangles are ternary scatter plots of individuals in three groups. Being close to a corner means a high propensity of being in that group. See the coordinate system explanation for what propensity scores correspond to points a through h.
+- The inner triangles indicate the region of retained individuals after trimming at the provisional thresholds.
 
 
 ** Right column                                       :BMCOL:
@@ -299,8 +299,8 @@ Please note we defined a PS for each treatment option.
    :BEAMER_env: exampleblock
    :END:
 \small
-- When the groups are similar in patient characteristics most people were kept in the trimmed cohort.
-- Stürmer's and Walker's methods adapted to the skewness in the distributions.
+- When the groups are similar in patient characteristics as expected in NSAIDs examples, most people were kept in the trimmed cohort.
+- Stürmer's and Walker's methods adapted to the skewness in the distributions due to marginal prevalence of treatments.
 
 *** Simulation study                                                :B_block:
 :PROPERTIES:
@@ -359,6 +359,7 @@ Please note we defined a PS for each treatment option.
    :PROPERTIES:
    :BEAMER_opt: allowframebreaks,label=,t
    :END:
+\vspace{-0.7ex}
 \tiny
 # To remove "References" section header
 \renewcommand{\section}[2]{}
