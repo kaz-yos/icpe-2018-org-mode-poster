@@ -262,12 +262,12 @@ Please note we defined a PS for each treatment option.
 :BEAMER_env: block
 :END:
 
-#+BEGIN_CENTER
-#+ATTR_LATEX: :width 0.6\textwidth :options page=1,keepaspectratio :center nil
-[[../../../_trimming_stats/shiny_trim_empirical_ternary/out/three_datasets_manual_trim.png]]
-#+ATTR_LATEX: :width 0.3\textwidth :options page=1,keepaspectratio :center nil
-[[../lib/ggtern_grids_points.png]]
-#+END_CENTER
+ #+BEGIN_CENTER
+ #+ATTR_LATEX: :width 0.7\textwidth :options page=1,keepaspectratio :center nil
+ [[../lib/three_datasets_600dpi_trimmed.png]]
+ #+ATTR_LATEX: :width 0.25\textwidth :options page=1,keepaspectratio :center nil
+ [[../lib/ternary_coordinate_and_table_trimmed.png]]
+ #+END_CENTER
 
 \small
 - When the groups are similar in patient characteristics most people were kept in the trimmed cohort.
