@@ -270,12 +270,6 @@ Please note we defined a PS for each treatment option.
 #+END_CENTER
 
 \small
-- The groups are the following
-| Example        | Group 0            | Group 1            | Group 2       |
-|----------------+--------------------+--------------------+---------------|
-| Coxibs         | Celecoxib          | Rofecoxib          | Valdecoxib    |
-| nsNSAIDs       | Naproxen           | Ibuprofen          | Diclofenac    |
-| Anti-diabetics | Metf.+Sulfonylurea | Metf.+GLP1 Agonist | Metf.+Insulin |
 - When the groups are similar in patient characteristics most people were kept in the trimmed cohort.
 - Stürmer's and Walker's methods adapted to the skewness in the distributions.
 
