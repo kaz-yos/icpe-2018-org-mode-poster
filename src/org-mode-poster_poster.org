@@ -173,16 +173,26 @@
 :END:
 ** Code                                                       :ignore:
 # Babel code can go here to populate the poster with dynamic output
+\vspace{-1cm}
 
 ** Left column                                        :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.48
 :BEAMER_opt: [t]
 :END:
+*** Conflict of Interest                                            :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+\small
+KY received support from Harvard T.H. Chan School of Public Health (partially supported by Pfizer, Takeda, Bayer and ASISA) and Honjo International Scholarship Foundation. DHS receives salary support from institutional research grants from Eli Lilly, Amgen, Pfizer, AstraZeneca, Genentech, and Corrona. He also receives royalties from UpToDate, and serves in unpaid roles in studies funded by Pfizer and Eli Lilly. RJG received research support in the form of grants to his institution from AstraZeneca, Kowa, Novartis, and Pfizer. Other authors declared no COI.
+
+
 *** Background                                                      :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+\small
 - cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walkerToolAssessingFeasibility2013 have proposed PS trimming methods for binary exposures.
 
 - cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution.
