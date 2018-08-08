@@ -255,8 +255,8 @@ Please note we defined a PS for each treatment option.
 :BEAMER_env: block
 :END:
 \small
-- We used several characteristics observational datasets to illustrate how these trimming methods behave with three groups.
-- These triangles are ternary scatter plots of individuals in three groups. Being close to a corner means a high propensity of being in that group. See the coordinate system explanation for what propensity scores correspond to points a through h.
+- We used three observational datasets for illustration (figure): Coxibs (very similar indications; similar group sizes), non-selective NSAIDs (very similar indications; small diclofenac group), and anti-diabetic medications (more different indications; much larger sulfonylurea group).
+- These triangular panels are ternary scatter plots of individuals in three groups. Being close to a corner means a high propensity of being in that group. See the coordinate system explanation for what propensity scores correspond to points a through h.
 - The inner triangles indicate the region of retained individuals after trimming at the provisional thresholds.
 
 
@@ -390,8 +390,8 @@ The unmeasured confounders were made more prevalent in the three tails of the PS
 \nbsp{}\\
 *Unadj*: Unadjusted\\
 *IPTW*: Inverse probability of treatment weights\\
-*MW*: Matching weights\\
-*OW*: Overlap weights\\
+*MW*: Matching weights cite:YoshidaMatchingWeightsSimultaneously2017\\
+*OW*: Overlap weights cite:LiBalancingCovariatesPropensity2016\\
 
 **** @@latex:@@
    :PROPERTIES:
@@ -408,7 +408,7 @@ The unmeasured confounders were made more prevalent in the three tails of the PS
 
 - The extensions of Stürmer and Walker’s PS trimming methods reduced bias in 3-group exposure settings even with highly imbalanced treatment frequencies.
 
-- In practice, examining how effect estimates vary at various trimming thresholds can be a useful sensitivity analysis to assess potential unmeasured confounding in the tails of a multinomial PS.
+- Examining how effect estimates vary at different trimming thresholds can be a useful sensitivity analysis although roles of treatment effect heterogeneity may also need consideration.
 
 *** Bibliography                                                    :B_block:
    :PROPERTIES:
