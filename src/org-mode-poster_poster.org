@@ -193,7 +193,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 :BEAMER_env: block
 :END:
 \small
-- cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walkerToolAssessingFeasibility2013 have proposed PS trimming methods for binary exposures.
+- cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walkerToolAssessingFeasibility2013 have proposed propensity score (PS) trimming methods for binary exposures.
 
 - cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution.
 
