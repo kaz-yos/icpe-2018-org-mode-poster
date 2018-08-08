@@ -201,35 +201,34 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 
 
 *** Notations                                                       :B_block:
-\small
- | Notation                                                                      | Explanation                            |
- |-------------------------------------------------------------------------------+----------------------------------------|
- | $i \in \left\{ 1,...,n \right\}$                                              | index for an individual                |
- | $I = \left\{ 1,...,n \right\}$                                                | index set for entire sample            |
- | $A_{i} \in \left\{ 0,...,J \right\}$                                          | multinomial treatment variable         |
- | $\bX_{i}$                                                                     | covariates                             |
- | $e_{ji} = P[A_{i}=j \vert \bX_{i}]$                                           | propensity score for treatment $j$     |
- | $p_{j} = P[A_{i}=j]$                                                          | treatment $j$ prevalence               |
- | $\pi_{ji} = \frac{\frac{e_{ji}}{p_{j}}}{\sum^{J}_{k=0} \frac{e_{ki}}{p_{k}}}$ | preference score for treatment $j$     |
- | $F^{-1}_{e_{i}\vert A_{i}}(x \vert a)$                                        | treatment-specific quantile of $e_{i}$ |
- | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | trimming thresholds for $J+1$ groups   |
-
-Please note we defined a PS for each treatment option.
+ \small
+  | Notation                                                                      | Explanation                                                                                                    |
+  |-------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------|
+  | $i \in \left\{ 1,...,n \right\}$                                              | Index for an individual                                                                                        |
+  | $I = \left\{ 1,...,n \right\}$                                                | Index set for entire sample                                                                                    |
+  | $A_{i} \in \left\{ 0,...,J \right\}$                                          | Multinomial treatment variable                                                                                 |
+  | $\bX_{i}$                                                                     | Covariates                                                                                                     |
+  | $e_{ji} = P[A_{i}=j \vert \bX_{i}]$                                           | Propensity score for treatment $j$                                                                             |
+  | $p_{j} = P[A_{i}=j]$                                                          | Treatment $j$ prevalence                                                                                       |
+  | $\pi_{ji} = \frac{\frac{e_{ji}}{p_{j}}}{\sum^{J}_{k=0} \frac{e_{ki}}{p_{k}}}$ | Preference score for treatment $j$; prevalence-adjusted version of PS                                          |
+  | $F^{-1}_{e_{ji} \vert A_{i}}(x \vert j)$                                      | Treatment $j$ specific $100 \times x$ percentile value of corresponding PS $e_{ji}$                            |
+  |                                                                               | \textit{e.g.}, $F^{-1}_{e_{ji} \vert A_{i}}(0.05 \vert j)$: 5-th percentile of $e_{ji}$ in treatment group $j$ |
+  | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | Trimming thresholds for $J+1$ groups                                                                           |
 
 
 *** Definitions and Explanation                                     :B_block:
 \small
- | Method  | Proposed multinomial definition                                                                                                                             |
- |---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------|
- | Crump   | $I_{J,c} = \left\{ i \in I: e_{ji} \in [\alpha_{J,c},1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                                |
- | Stürmer | $I_{J,s} = \left\{ i \in I: e_{ji} \in \left[F^{-1}_{e_{ji}\vert A_{i}}(\alpha_{J,s}\vert j), 1.0\right] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
- | Walker  | $I_{J,w} = \left\{ i \in I: \pi_{ji} \in [\alpha_{J,w}, 1.0] ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                             |
+ | Method  | Proposed multinomial definition                                                                                                             |
+ |---------+---------------------------------------------------------------------------------------------------------------------------------------------|
+ | Crump   | $I_{J,c} = \left\{ i \in I: e_{ji} \ge \alpha_{J,c} ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                      |
+ | Stürmer | $I_{J,s} = \left\{ i \in I: e_{ji} \ge F^{-1}_{e_{ji} \vert A_{i}}(\alpha_{J,s} \vert j) ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
+ | Walker  | $I_{J,w} = \left\{ i \in I: \pi_{ji} \ge \alpha_{J,w} ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                    |
 
 - Multinomial Crump trimming retains subjects who have all PSs above the threshold $\alpha_{J,c}$.
 
-- Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the $100 \alpha_{J,s}$ percentile of each PS in the corresponding treatment group.
+- Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the $100 \times \alpha_{J,s}$ percentile of each PS in the corresponding treatment group.
 
-- Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS.
+- Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS and a different threshold value $\alpha_{J,w}$.
 
 - We only need the lower threshold for each PS. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments (see figure).
 
