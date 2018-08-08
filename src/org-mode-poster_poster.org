@@ -184,7 +184,7 @@
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-\small
+\footnotesize
 KY received support from Harvard T.H. Chan School of Public Health (partially supported by Pfizer, Takeda, Bayer and ASISA) and Honjo International Scholarship Foundation. DHS receives salary support from institutional research grants from Eli Lilly, Amgen, Pfizer, AstraZeneca, Genentech, and Corrona. He also receives royalties from UpToDate, and serves in unpaid roles in studies funded by Pfizer and Eli Lilly. RJG received research support in the form of grants to his institution from AstraZeneca, Kowa, Novartis, and Pfizer. Other authors declared no COI.
 
 
