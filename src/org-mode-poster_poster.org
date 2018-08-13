@@ -308,7 +308,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
    :BEAMER_env: exampleblock
    :END:
 \large
-- When the groups are similar in patient characteristics as expected in NSAIDs examples, most people were kept in the trimmed cohort.
+- When the groups were similar in patient characteristics as expected in NSAIDs examples, most people were kept in the cohort after trimming.
 - Stürmer's and Walker's methods adapted to the skewness in the distributions due to marginal prevalence of treatments.
 
 *** Simulation Study                                                :B_block:
