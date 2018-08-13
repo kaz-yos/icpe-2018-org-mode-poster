@@ -26,7 +26,7 @@
 # ----------------------------------------------------------------------
 #+LATEX_CLASS:  mybeamerposter
 #+LATEX_HEADER:  \setlength{\paperwidth}{36in}
-#+LATEX_HEADER:  \setlength{\paperheight}{48in}
+#+LATEX_HEADER:  \setlength{\paperheight}{55in}
 #+LATEX_HEADER: \setlength{\textwidth}{0.98\paperwidth}
 #+LATEX_HEADER: \setlength{\textheight}{0.98\paperheight}
 #+LATEX_HEADER: \graphicspath{{../output/figures/}{../lib/}}
@@ -184,7 +184,7 @@
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-\footnotesize
+\small
 KY received support from Harvard T.H. Chan School of Public Health (partially supported by Pfizer, Takeda, Bayer and ASISA) and Honjo International Scholarship Foundation. DHS receives salary support from institutional research grants from Eli Lilly, Amgen, Pfizer, AstraZeneca, Genentech, and Corrona. He also receives royalties from UpToDate, and serves in unpaid roles in studies funded by Pfizer and Eli Lilly. RJG received research support in the form of grants to his institution from AstraZeneca, Kowa, Novartis, and Pfizer. Other authors declared no COI.
 
 
@@ -192,7 +192,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-\small
+\large
 - cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walkerToolAssessingFeasibility2013 have proposed propensity score (PS) trimming methods for binary exposures.
 
 - cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution.
@@ -201,7 +201,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 
 
 *** Notations                                                       :B_block:
- \small
+\small
   | Notation                                                                      | Explanation                                                                                                    |
   |-------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------|
   | $i \in \left\{ 1,...,n \right\}$                                              | Index for an individual                                                                                        |
@@ -217,13 +217,13 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 
 
 *** Definitions and Explanation                                     :B_block:
-\small
+\large
  | Method  | Proposed multinomial definition                                                                                                             |
  |---------+---------------------------------------------------------------------------------------------------------------------------------------------|
  | Crump   | $I_{J,c} = \left\{ i \in I: e_{ji} \ge \alpha_{J,c} ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                      |
  | Stürmer | $I_{J,s} = \left\{ i \in I: e_{ji} \ge F^{-1}_{e_{ji} \vert A_{i}}(\alpha_{J,s} \vert j) ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
  | Walker  | $I_{J,w} = \left\{ i \in I: \pi_{ji} \ge \alpha_{J,w} ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                    |
-
+\small
 - Multinomial Crump trimming retains subjects who have all PSs above the threshold $\alpha_{J,c}$.
 
 - Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the $100 \times \alpha_{J,s}$ percentile of each PS in the corresponding treatment group.
@@ -238,6 +238,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 \small
 - We need thresholds ($\alpha_{J,c}$, $\alpha_{J,s}$, and $\alpha_{J,w}$) that change with the number of groups ($J+1$).
 - We used the following values as provisional thresholds for illustration.
+\normalsize
 | Groups | $J$ |     Crump ($\alpha_{J,c}$) | \text{St\"urmer} (\alpha_{J,s}) |    Walker ($\alpha_{J,w}$) |
 |--------+-----+----------------------------+---------------------------------+----------------------------|
 |      2 |   1 |                       0.10 |                           0.050 |                       0.30 |
@@ -246,6 +247,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 |      5 |   4 |                       0.04 |                           0.020 |                       0.12 |
 |        |     |                   $\vdots$ |                                 |                            |
 |  $J+1$ | $J$ | $\frac{1}{J+1}\frac{1}{5}$ |     $\frac{1}{J+1}\frac{1}{10}$ | $\frac{1}{J+1}\frac{3}{5}$ |
+\small
 - Crump lower bounds are on the multinomial propensity score, Stürmer lower bounds are on multinomial propensity score quantile, and Walker lower bounds are on the multinomial preference score.
 
 
@@ -305,7 +307,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
    :PROPERTIES:
    :BEAMER_env: exampleblock
    :END:
-\small
+\large
 - When the groups are similar in patient characteristics as expected in NSAIDs examples, most people were kept in the trimmed cohort.
 - Stürmer's and Walker's methods adapted to the skewness in the distributions due to marginal prevalence of treatments.
 
@@ -313,7 +315,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-\small
+\large
 - We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
 
 \vspace{-2cm}
@@ -414,7 +416,7 @@ The unmeasured confounders were made more prevalent in the three tails of the PS
    :BEAMER_opt: allowframebreaks,label=,t
    :END:
 \vspace{-0.7ex}
-\tiny
+\scriptsize
 # To remove "References" section header
 \renewcommand{\section}[2]{}
 # Following lines must be left-aligned without preceding spaces.
