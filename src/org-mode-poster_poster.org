@@ -56,7 +56,7 @@
 #+LATEX_HEADER: Daniel H Solomon$^{2}$
 #+LATEX_HEADER: Sebastien Haneuse$^{1}$
 #+LATEX_HEADER: Seoyoung C Kim$^{2}$
-#+LATEX_HEADER: Elisabetta Patorno$^{2}$
+#+LATEX_HEADER: Elisabetta Patorno$^{2}$ \\
 #+LATEX_HEADER: Sara K Tedeschi$^{2}$
 #+LATEX_HEADER: Houchen Lyu$^{2}$
 #+LATEX_HEADER: Sonia Hernandez-Diaz$^{1}$
