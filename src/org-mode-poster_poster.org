@@ -309,7 +309,7 @@ KY received support from Harvard T.H. Chan School of Public Health (partially su
 - When the groups are similar in patient characteristics as expected in NSAIDs examples, most people were kept in the trimmed cohort.
 - Stürmer's and Walker's methods adapted to the skewness in the distributions due to marginal prevalence of treatments.
 
-*** Simulation study                                                :B_block:
+*** Simulation Study                                                :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
@@ -405,7 +405,7 @@ The unmeasured confounders were made more prevalent in the three tails of the PS
 :END:
 - We proposed a multinomial extension of the existing two-group PS trimming methods.
 
-- The extensions of Stürmer and Walker’s PS trimming methods reduced bias in 3-group exposure settings even with highly imbalanced treatment frequencies.
+- The extensions of Stürmer and Walker’s PS trimming methods reduced bias in 3-group exposure settings even with highly imbalanced treatment frequencies (10:10:80).
 
 - Examining how effect estimates vary at different trimming thresholds can be a useful sensitivity analysis although roles of treatment effect heterogeneity may also need consideration.
 
