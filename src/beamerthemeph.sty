@@ -127,23 +127,28 @@
 \setbeamertemplate{headline}{
   \leavevmode
   \begin{columns}[t,onlytextwidth]
-	\column{1.0\textwidth}
-	  \begin{beamercolorbox}[wd=\columnwidth, leftskip=2.0cm, ht=11.55cm]{headline}
-%  	\vskip1.5cm
-%		\centering
-     \vskip7.6ex
 
-    \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
-     \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
-     \vskip2.4ex
-	  \end{beamercolorbox}
-    %     \column{.13\textwidth}
-    %        \begin{beamercolorbox}[wd=\columnwidth]{logo}
-    % \centering
-    %     	\vskip2.10cm
-    %     	\includegraphics[width=0.8\linewidth]{logo.pdf}
-    %     	\vskip2.10cm
-    %        \end{beamercolorbox}
+    \column{0.937\textwidth}
+    \begin{beamercolorbox}[wd=\columnwidth, leftskip=2.0cm, ht=11.55cm]{headline}
+      % \vskip1.5cm
+      % \centering
+      \vskip7.6ex
+
+      \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+      \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+      \vskip2.4ex
+    \end{beamercolorbox}
+
+    \column{0.063\textwidth}
+    \begin{beamercolorbox}[wd=\columnwidth, ht=11.55cm]{logo}
+      \centering
+      % vskip is necessary for white space above logos.
+      % \vskip 4.0cm
+      \includegraphics[width=1.0\linewidth]{chan.png}
+      \includegraphics[width=1.0\linewidth]{brigham.jpeg}
+      % vskip is necessary for white space below logos.
+      % \vskip 4.0cm
+    \end{beamercolorbox}
   \end{columns}
 
 
