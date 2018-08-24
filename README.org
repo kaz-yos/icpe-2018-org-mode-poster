@@ -87,7 +87,8 @@
 * Image                                                       :ignore:
 
 #+HTML: <p align="center">
-#+HTML: <img width=400 src="src/org-mode-poster_poster.png" /></p>
+#+HTML: <img width=800 src="src/org-mode-poster_poster.png" /></p>
+
 
 * Author
 Kazuki Yoshida <kazukiyoshida@mail.harvard.edu>

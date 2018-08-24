@@ -4,7 +4,7 @@
 
 <p align="center">
 
-<img width=400 src="src/org-mode-poster_poster.png" /></p>
+<img width=800 src="src/org-mode-poster_poster.png" /></p>
 
 
 # Author
