@@ -90,8 +90,8 @@
 #+HTML: <img width=800 src="src/org-mode-poster_poster.png" /></p>
 
 
-* Author
-Kazuki Yoshida <kazukiyoshida@mail.harvard.edu>
+* Authors
+[[https://twitter.com/kaz_yos][Kazuki Yoshida]] <kazukiyoshida@mail.harvard.edu>, Daniel H Solomon, Sebastien Haneuse, Seoyoung C Kim, Elisabetta Patorno, Sara K Tedeschi, Houchen Lyu, Sonia Hernandez-Diaz, Robert J Glynn.
 
 * What this poster is about
 This International Conference for Pharmacoepidemiology (ICPE) 2018 poster describes our proposed definitions to extend three existing propensity score trimming methods (Crump et al. Biometrika 2009;96:187, Stürmer et al. Am J Epidemiol 2010;172:843, and Walker et al. Comp Eff Res 2013;3:11) into the multinomial exposure settings.\\
