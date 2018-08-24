@@ -1,0 +1,35 @@
+\begin{thebibliography}{}
+
+\bibitem[Crump et~al., 2009]{crump_dealing_2009}
+Crump, R.~K., Hotz, V.~J., Imbens, G.~W., and Mitnik, O.~A. (2009).
+\newblock Dealing with limited overlap in estimation of average treatment
+  effects.
+\newblock {\em Biometrika}, 96(1):187--199.
+
+\bibitem[Li et~al., 2016]{LiBalancingCovariatesPropensity2016}
+Li, F., Morgan, K.~L., and Zaslavsky, A.~M. (2016).
+\newblock Balancing {{Covariates}} via {{Propensity Score Weighting}}.
+\newblock {\em Journal of the American Statistical Association}, 0(0):1--11.
+
+\bibitem[St\"urmer et~al., 2010]{sturmer_treatment_2010}
+St\"urmer, T., Rothman, K.~J., Avorn, J., and Glynn, R.~J. (2010).
+\newblock Treatment effects in the presence of unmeasured confounding: Dealing
+  with observations in the tails of the propensity score distribution--a
+  simulation study.
+\newblock {\em Am. J. Epidemiol.}, 172(7):843--854.
+
+\bibitem[Walker et~al., 2013]{walkerToolAssessingFeasibility2013}
+Walker, A.~M., Patrick, A.~R., Lauer, M.~S., Hornbrook, M.~C., Marin, M.~G.,
+  Platt, R., Roger, V.~L., Stang, P., and Schneeweiss, S. (2013).
+\newblock A tool for assessing the feasibility of comparative effectiveness
+  research.
+\newblock {\em Comp Eff Res}, page~11.
+
+\bibitem[Yoshida et~al., 2017]{YoshidaMatchingWeightsSimultaneously2017}
+Yoshida, K., {Hernandez-Diaz}, S., Solomon, D.~H., Jackson, J.~W., Gagne,
+  J.~J., Glynn, R.~J., and Franklin, J.~M. (2017).
+\newblock Matching {{Weights}} to {{Simultaneously Compare Three Treatment
+  Groups}}: {{Comparison}} to {{Three}}-way {{Matching}}.
+\newblock {\em Epidemiology}, 28(3):387--395.
+
+\end{thebibliography}
