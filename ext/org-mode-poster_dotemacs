@@ -7,6 +7,9 @@
 ;; get rid of yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; no back up files
+(setq make-backup-files nil)
+
 ;; package archives
 (require 'package)
 (add-to-list 'package-archives 
