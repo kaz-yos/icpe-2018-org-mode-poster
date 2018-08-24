@@ -1,5 +1,5 @@
 #+startup: beamer
-#+TITLE: Using org-mode for scientific posters 
+#+TITLE: Multinomial Extension of Propensity Score Trimming Methods: A Simulation Study
 * Preamble                                                    :ignore:
 ** General comments                                           :ignore:
 # ----------------------------------------------------------------------
@@ -26,7 +26,7 @@
 # ----------------------------------------------------------------------
 #+LATEX_CLASS:  mybeamerposter
 #+LATEX_HEADER:  \setlength{\paperwidth}{36in}
-#+LATEX_HEADER:  \setlength{\paperheight}{48in}
+#+LATEX_HEADER:  \setlength{\paperheight}{55in}
 #+LATEX_HEADER: \setlength{\textwidth}{0.98\paperwidth}
 #+LATEX_HEADER: \setlength{\textheight}{0.98\paperheight}
 #+LATEX_HEADER: \graphicspath{{../output/figures/}{../lib/}}
@@ -37,29 +37,33 @@
 #+LATEX_HEADER: \usepackage{listings}
 #+LATEX_HEADER: \usepackage{textcomp}
 #+LATEX_HEADER: \usepackage{bibentry}
-#+LATEX_HEADER: \newcommand\sumin{\sum_{i=1}^{n}}
-#+LATEX_HEADER: \newcommand{\Xoi}[1]{#1(i)}
-#+LATEX_HEADER: \newcommand{\frakPQ}[2]{\frac{\Xoi{#1}}{\Xoi{#2}}}
-#+LATEX_HEADER: \newcommand{\DKLPQ}[3]{D_{\mathrm{KL}}(#1 #3 #2)}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usetikzlibrary{positioning,shapes.geometric}
+#+LATEX_HEADER: \input{\string~/.emacs.d/misc/GrandMacros}
 #+LATEX_HEADER: \date{}
 # ----------------------------------------------------------------------
 ** Latex macros                                               :ignore:
 # ----------------------------------------------------------------------
-#+LATEX_HEADER: \newcommand{\auth}{Philipp Homan, MD, PhD}
-#+LATEX_HEADER: \newcommand{\authemail}{phoman1@northwell.edu}
-#+LATEX_HEADER: \newcommand{\authtwitter}{@philipphoman}
-#+LATEX_HEADER: \newcommand{\authgithub}{github.com/philipphoman}
+#+LATEX_HEADER: \newcommand{\auth}{Kazuki Yoshida, MD, MPH, MS}
+#+LATEX_HEADER: \newcommand{\authemail}{kazukiyoshida@mail.harvard.edu}
+#+LATEX_HEADER: \newcommand{\authtwitter}{@kaz\_yos}
+#+LATEX_HEADER: \newcommand{\authgithub}{github.com/kaz-yos}
 # ----------------------------------------------------------------------
 ** Authors and affiliations                                   :ignore:
 # ----------------------------------------------------------------------
 #+LATEX_HEADER: \author{
-#+LATEX_HEADER: Philipp Homan$^{1}$ 
+#+LATEX_HEADER: Kazuki Yoshida$^{1,2}$
+#+LATEX_HEADER: Daniel H Solomon$^{2}$
+#+LATEX_HEADER: Sebastien Haneuse$^{1}$
+#+LATEX_HEADER: Seoyoung C Kim$^{2}$
+#+LATEX_HEADER: Elisabetta Patorno$^{2}$ \\
+#+LATEX_HEADER: Sara K Tedeschi$^{2}$
+#+LATEX_HEADER: Houchen Lyu$^{2}$
+#+LATEX_HEADER: Sonia Hernandez-Diaz$^{1}$
+#+LATEX_HEADER: Robert J Glynn$^{1,2}$
 #+LATEX_HEADER: \\
-#+LATEX_HEADER: \vspace{5mm}
-#+LATEX_HEADER: \normalsize{$^{1}$Department of Psychiatry,} 
-#+LATEX_HEADER: \normalsize{The Donald and Barbara Zucker}
-#+LATEX_HEADER: \normalsize{School of Medicine at Northwell/Hofstra,}
-#+LATEX_HEADER: \normalsize{Hempstead, NY}
+#+LATEX_HEADER: \normalsize{$^{1}$ Harvard T.H. Chan School of Public Health, Boston, MA, USA; }
+#+LATEX_HEADER: \normalsize{$^{2}$ Brigham and Women's Hospital, Boston, MA, USA}
 #+LATEX_HEADER: }
 # ----------------------------------------------------------------------
 ** Buffer-wide source code blocks                             :ignore:
@@ -73,27 +77,27 @@
   ; Nicer formatting for code
   (setq org-latex-listings t)
   (setq org-latex-listings 'minted)
-  '(org-export-latex-listings-langs 
-      (quote ((emacs-lisp "Lisp") 
-              (lisp "Lisp") 
-              (clojure "Lisp") 
-              (c "C") 
-              (cc "C++") 
-              (fortran "fortran") 
-              (perl "Perl") 
-              (cperl "Perl") 
-              (python "Python") 
-              (ruby "Ruby") 
-              (html "HTML") 
-              (xml "XML") 
-              (tex "TeX") 
-              (latex "TeX") 
-              (shell-script "bash") 
-              (gnuplot "Gnuplot") 
-              (ocaml "Caml") 
-              (caml "Caml") 
-              (sql "SQL") 
-              (sqlite "sql") 
+  '(org-export-latex-listings-langs
+      (quote ((emacs-lisp "Lisp")
+              (lisp "Lisp")
+              (clojure "Lisp")
+              (c "C")
+              (cc "C++")
+              (fortran "fortran")
+              (perl "Perl")
+              (cperl "Perl")
+              (python "Python")
+              (ruby "Ruby")
+              (html "HTML")
+              (xml "XML")
+              (tex "TeX")
+              (latex "TeX")
+              (shell-script "bash")
+              (gnuplot "Gnuplot")
+              (ocaml "Caml")
+              (caml "Caml")
+              (sql "SQL")
+              (sqlite "sql")
               (R-mode "R"))))
   (setq org-latex-minted-options
      '(("linenos=true") ("bgcolor=lightgray")))
@@ -118,7 +122,7 @@
 	(org-toggle-link-display)
 	; don't remove logfiles at export
   (setq org-latex-remove-logfiles nil)
-	
+
   ; Keybindings
   ; (global-set-key (kbd "<f7> c") "#+CAPTION: ")
   (defun setfillcolumn72 ()
@@ -134,10 +138,10 @@
   (define-key org-mode-map (kbd "C-c l #") "#+LATEX_HEADER: ")
   (define-key org-mode-map (kbd "C-c f c 4 2") 'setfillcolumn42)
   (define-key org-mode-map (kbd "C-c f c 7 2") 'setfillcolumn72)
-	
+
   (setq org-odt-category-map-alist
       '(("__Figure__" "*Figure*" "value" "Figure" org-odt--enumerable-image-p)))
- 
+
 
 	; let ess not ask for starting directory
   (setq ess-ask-for-ess-directory nil)
@@ -145,9 +149,9 @@
   ;(setq org-latex-pdf-process '("latexmk -pdflatex='xelatex
   ;-output-directory=../output/tex/ -interaction nonstopmode' -pdf
   ;-bibtex -f %f"))
-  (setq org-latex-logfiles-extensions 
-      (quote("bcf" "blg" "fdb_latexmk" "fls" 
-      "figlist" "idx" "log" "nav" "out" "ptc" 
+  (setq org-latex-logfiles-extensions
+      (quote("bcf" "blg" "fdb_latexmk" "fls"
+      "figlist" "idx" "log" "nav" "out" "ptc"
       "run.xml" "snm" "toc" "vrb" "xdv")))
 
   ; deactivate link resolving
@@ -168,208 +172,253 @@
 :BEAMER_env: fullframe
 :END:
 ** Code                                                       :ignore:
-# Babel code can go here to populate the poster with dynamic output 
+# Babel code can go here to populate the poster with dynamic output
+\vspace{-1cm}
 
 ** Left column                                        :BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.45
+:BEAMER_col: 0.48
 :BEAMER_opt: [t]
 :END:
-*** Background                                        :B_block:
+*** Conflict of Interest                                            :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-- Here we show how org-mode (version src_elisp{org-version}
-  {{{results(9.1.7)}}}) and emacs (version src_elisp{emacs-version}
-  {{{results(25.2.2)}}}) can be used to make decent looking scientific
-  posters
-- With org-mode we can populate the poster with code, graphs and numbers
-  from inline code in languages such as R, python, Matlab and even shell
-  scripting
-- For example, this poster was created on {{{time(%Y-%m-%d %H:%M)}}} on
-  src_bash{lsb_release -sd} {{{results(Ubuntu 17.10)}}}.
-- Inline code could look like this (which will produce a graph; 
-  Fig. [[figcode1]]):
-
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.68
-:BEAMER_opt: [T]
-:END:
-
-#+NAME: code1
-#+BEGIN_SRC R  :file 3.png :session :exports both :results graphics  
-set.seed(20180402)
-x1 <- rnorm(100, 0, 1)
-x2 <- rnorm(100, 0.5, 1)
-hist(x1, col="red")
-hist(x2, col="blue", add=TRUE)
-#+END_SRC
-
-#+NAME: figcode1
-#+CAPTION: This is the output.
-#+RESULTS: code1
-[[file:3.png]]
-
-*** Inline code and tables                            :B_block:
-:PROPERTIES:
-:BEAMER_env: block
-:END:
-- Tables are powerful in org-mode and even include spreadsheet
-  capabilities
-- Some code to process the first vector from above to make a table out
-  of its summary could look like this, which would result in a little
-  table (Table [[tabcode2]]) :
-
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.78
-:BEAMER_opt: [T]
-:END:
-
-#+NAME: code2
-#+BEGIN_SRC R :session :exports both :results value :colnames yes :cache yes
-library(broom)
-library(dplyr)
-t1 <- tidy(round(summary(x1), 2)) 
-t2 <- tidy(round(summary(x2), 2))
-
-# This will export as a table
-rbind(t1, t2) %>%
-mutate(name=c("x1", "x2"))
-#+END_SRC
-
-\vspace{2cm}
 \small
-#+CAPTION: A table summarizing the two distributions.
-#+NAME: tabcode2
-#+RESULTS[9d0ec7348265a5cb6de39440ff06a8dbb8e5ecf1]: code2
-|---------+-------+--------+------+------+---------+------|
-| minimum |    q1 | median | mean |   q3 | maximum | name |
-|---------+-------+--------+------+------+---------+------|
-|   -2.29 | -0.49 |   0.11 | 0.14 |  0.8 |    2.47 | x1   |
-|   -2.17 | -0.45 |   0.07 | 0.13 | 0.85 |    2.23 | x2   |
-|---------+-------+--------+------+------+---------+------|
+KY received support from Harvard T.H. Chan School of Public Health (partially supported by Pfizer, Takeda, Bayer and ASISA) and Honjo International Scholarship Foundation. DHS receives salary support from institutional research grants from Eli Lilly, Amgen, Pfizer, AstraZeneca, Genentech, and Corrona. He also receives royalties from UpToDate, and serves in unpaid roles in studies funded by Pfizer and Eli Lilly. RJG received research support in the form of grants to his institution from AstraZeneca, Kowa, Novartis, and Pfizer. Other authors declared no COI.
+
+
+*** Background                                                      :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+\large
+- cite:crump_dealing_2009, cite:sturmer_treatment_2010 and cite:walkerToolAssessingFeasibility2013 have proposed propensity score (PS) trimming methods for binary exposures.
+
+- cite:sturmer_treatment_2010 demonstrated benefits of PS trimming in reducing unmeasured confounding in the presence of unmeasured confounders that were more prevalent in the tails of the PS distribution.
+
+- We extended binary PS trimming methods to the general multinomial settings. We illustrated and examined their characteristics in the visually-tractable 3-group setting.
+
+
+*** Notations                                                       :B_block:
+\small
+  | Notation                                                                      | Explanation                                                                                                    |
+  |-------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------|
+  | $i \in \left\{ 1,...,n \right\}$                                              | Index for an individual                                                                                        |
+  | $I = \left\{ 1,...,n \right\}$                                                | Index set for entire sample                                                                                    |
+  | $A_{i} \in \left\{ 0,...,J \right\}$                                          | Multinomial treatment variable                                                                                 |
+  | $\bX_{i}$                                                                     | Covariates                                                                                                     |
+  | $e_{ji} = P[A_{i}=j \vert \bX_{i}]$                                           | Propensity score for treatment $j$                                                                             |
+  | $p_{j} = P[A_{i}=j]$                                                          | Treatment $j$ prevalence                                                                                       |
+  | $\pi_{ji} = \frac{\frac{e_{ji}}{p_{j}}}{\sum^{J}_{k=0} \frac{e_{ki}}{p_{k}}}$ | Preference score for treatment $j$; prevalence-adjusted version of PS                                          |
+  | $F^{-1}_{e_{ji} \vert A_{i}}(x \vert j)$                                      | Treatment $j$ specific $100 \times x$ percentile value of corresponding PS $e_{ji}$                            |
+  |                                                                               | \textit{e.g.}, $F^{-1}_{e_{ji} \vert A_{i}}(0.05 \vert j)$: 5-th percentile of $e_{ji}$ in treatment group $j$ |
+  | $\alpha_{J,c},\alpha_{J,s},\alpha_{J,w}$                                      | Trimming thresholds for $J+1$ groups                                                                           |
+
+
+*** Definitions and Explanation                                     :B_block:
+\large
+ | Method  | Proposed multinomial definition                                                                                                             |
+ |---------+---------------------------------------------------------------------------------------------------------------------------------------------|
+ | Crump   | $I_{J,c} = \left\{ i \in I: e_{ji} \ge \alpha_{J,c} ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                      |
+ | Stürmer | $I_{J,s} = \left\{ i \in I: e_{ji} \ge F^{-1}_{e_{ji} \vert A_{i}}(\alpha_{J,s} \vert j) ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$ |
+ | Walker  | $I_{J,w} = \left\{ i \in I: \pi_{ji} \ge \alpha_{J,w} ~\forall~ j \in \left\{ 0,...,J \right\} \right\}$                                    |
+\small
+- Multinomial Crump trimming retains subjects who have all PSs above the threshold $\alpha_{J,c}$.
+
+- Multinomial Stürmer trimming is asymmetric in that the lower threshold for each PS is different unlike multinomial Crump trimming. The lower threshold is the $100 \times \alpha_{J,s}$ percentile of each PS in the corresponding treatment group.
+
+- Multinomial Walker trimming is similar to multinomial Crump trimming except the use of a preference score in place of PS and a different threshold value $\alpha_{J,w}$.
+
+- We only need the lower threshold for each PS. Trimming the upper tail is implicit because individuals who have a very high PS for one treatment have very low PSs for the other treatments (see figure).
+
+- These definitions reduce to the original definitions when there are only two groups.
+
+*** Provisional Thresholds                                          :B_block:
+\small
+- We need thresholds ($\alpha_{J,c}$, $\alpha_{J,s}$, and $\alpha_{J,w}$) that change with the number of groups ($J+1$).
+- We used the following values as provisional thresholds for illustration.
+\normalsize
+| Groups | $J$ |     Crump ($\alpha_{J,c}$) | \text{St\"urmer} (\alpha_{J,s}) |    Walker ($\alpha_{J,w}$) |
+|--------+-----+----------------------------+---------------------------------+----------------------------|
+|      2 |   1 |                       0.10 |                           0.050 |                       0.30 |
+|      3 |   2 |                       0.07 |                           0.033 |                       0.20 |
+|      4 |   3 |                       0.05 |                           0.025 |                       0.15 |
+|      5 |   4 |                       0.04 |                           0.020 |                       0.12 |
+|        |     |                   $\vdots$ |                                 |                            |
+|  $J+1$ | $J$ | $\frac{1}{J+1}\frac{1}{5}$ |     $\frac{1}{J+1}\frac{1}{10}$ | $\frac{1}{J+1}\frac{3}{5}$ |
+\small
+- Crump lower bounds are on the multinomial propensity score, Stürmer lower bounds are on multinomial propensity score quantile, and Walker lower bounds are on the multinomial preference score.
+
+
+*** Empirical Data Illustration                                     :B_block:
+:PROPERTIES:
+:BEAMER_env: block
+:END:
+\small
+- We used three observational datasets for illustration (figure): Coxibs (very similar indications; similar group sizes), non-selective NSAIDs (very similar indications; small diclofenac group), and anti-diabetic medications (more different indications; much larger sulfonylurea group).
+- These triangular panels are ternary scatter plots of individuals in three groups. Being close to a corner means a high propensity of being in that group. See the coordinate system explanation for what propensity scores correspond to points a through h.
+- The inner triangles indicate the region of retained individuals after trimming at the provisional thresholds.
+
 
 ** Right column                                       :BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.45
+:BEAMER_col: 0.48
 :BEAMER_opt: [t]
 :END:
-*** Graphics                                          :B_block:
+*** Empirical Data Illustration (Continued)                         :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+\vspace{-2cm}
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
 
-- We can use shell scripting to grab an image with curl from the
-  internet (Fig. [[figcode3]]):
+***** @@latex:@@                                                      :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.70
+      :END:
+   #+ATTR_LATEX: :width 1.0\textwidth :options page=1,keepaspectratio :center t
+   [[../lib/three_datasets_600dpi_trimmed.png]]
 
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.78
-:BEAMER_opt: [T]
-:END:
+***** @@latex:@@                                                      :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.30
+      :END:
+   #+ATTR_LATEX: :width 1.0\textwidth :options page=1,keepaspectratio :center t
+   [[../lib/ternary_coordinate_and_table_trimmed.png]]
+#    [[../lib/ggtern_grids.pdf]]
+# \small
+# |     | $e_{0i}$ | $e_{1i}$ | $e_{2i}$ |
+# |-----+----------+----------+----------|
+# | /   | <c>      | <c>      | <c>      |
+# | (a) | $1$      | $0$      | $0$      |
+# | (b) | $0$      | $1$      | $0$      |
+# | (c) | $0$      | $0$      | $1$      |
+# | (d) | $1/3$    | $1/3$    | $1/3$    |
+# | (e) | $1/2$    | $1/2$    | $0$      |
+# | (f) | $1/2$    | $0$      | $1/2$    |
+# | (g) | $0$      | $1/2$    | $1/2$    |
+# | (h) | $0.1$    | $0.7$    | $0.2$    |
 
-\footnotesize
-#+NAME: code3
-#+BEGIN_SRC bash :exports both :file emacs.png  
-# Download emacs icon from gnu.org
-curl -0 https://www.gnu.org/software/emacs/images/emacs.png
-#+END_SRC
-\normalsize
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
+\large
+- When the groups were similar in patient characteristics as expected in NSAIDs examples, most people were kept in the cohort after trimming.
+- Stürmer's and Walker's methods adapted to the skewness in the distributions due to marginal prevalence of treatments.
 
-\vspace{2cm}
-
-#+ATTR_LATEX: :width 0.2\textwidth :options page=9
-#+NAME: figcode3
-#+CAPTION: This is the downloaded image.
-#+RESULTS: code3
-[[file:emacs.png]]
-
-*** Math                                                   :B_block:
-:PROPERTIES:
-:BEAMER_env: block
-:END:
-
-- Let's describe how to compute the distance between the
-  two simulated distributions $x1$ and $x2$ from before:
-
-**** Block
-:PROPERTIES:
-:BEAMER_col: 0.78
-:BEAMER_opt: [T]
-:END:
-
-\small
-The Kullback-Leibler (KL) divergence measures the difference between two
-probability distributions (i.e., the loss of information when one
-distribution is used to approximate another). The KL divergence is thus
-defined as
-#
-\begin{align} 
-\label{eq:KL} 
-\DKLPQ{P}{Q}{\|} = \sumin \Xoi{P} \log \frakPQ{P}{Q}
-\end{align} 
-#
-with $P$ and $Q$ being two probability distribution functions and $n$
-the number of sample points. Since $\DKLPQ{P}{Q}{\|}$ is not equal to
-$\DKLPQ{Q}{P}{\|}$, a symmetric variation of the KL divergence can be
-derived as follows:
-#
-\small
-\begin{align} 
-\label{eq:KL2} 
-\DKLPQ{P}{Q}{,} = \sumin \Big(\Xoi{P} \log \frakPQ{P}{Q} + \Xoi{Q} \log \frakPQ{Q}{P} \Big).
-\end{align}
-
-*** Columns                                                :B_block:
+*** Simulation Study                                                :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
+\large
+- We conducted simulation to examine bias reduction by trimming in settings in which the tails of PS distributions had unmeasured confounders.
 
-**** Left
-:PROPERTIES:
-:BEAMER_col: 0.48
-:BEAMER_opt: [T]
-:END:
+\vspace{-2cm}
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
+# exampleblock
+***** @@latex:@@                                                         :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.7
+      :END:
+#+ATTR_LATEX: :height 1.0\textheight :width 1.0\textwidth :options page=2,keepaspectratio :center t
+[[../../../_trimming_stats/code/out/bias.pdf]]
 
-#+NAME: codeleft
-#+BEGIN_SRC R :file 4l.png :session :exports results :results graphics
-d1 <- density(x1)
-plot(d1, col="red", lwd=3)
-#+END_SRC
+***** @@latex:@@                                                         :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
 
+\tiny
+\begin{align*}
+  &\text{Measured covariates}\\
+  \bX_{i}^{m} &= \begin{bmatrix}
+    X_{1i} & X_{2i} & X_{3i} & X_{4i} & X_{5i} & X_{6i} \\
+  \end{bmatrix}^{T}\\
+  &\text{Unmeasured covariates}\\
+  \bX_{i}^{u} &= \begin{bmatrix}
+    X_{7i} & X_{8i} & X_{9i}\\
+  \end{bmatrix}^{T}
+\end{align*}
 
-\captionsetup{justification=justified,width=.85\linewidth}
-#+NAME: figcodeleft
-#+CAPTION: This is the left figure of a two-column block, showing
-#+CAPTION: the density of $x1$.
-#+RESULTS: codeleft
-[[file:4l.png]]
+\scriptsize
+\begin{center}
+  \begin{tikzpicture}[%
+    ->,
+    shorten >=2pt,
+    >=stealth,
+    node distance=1cm,
+    pil/.style={
+      ->,
+      thick,
+      shorten =2pt,}
+    ]
+    %% Nodes
+    \node (Xm) {$\bX^{m}_{i}$};
+    \node[below = 0.3cm of Xm] (Xu) {$\bX^{u}_{i}$};
+    \node[below left  = 2cm and 1.5cm of Xm] (A) {$A_i$};
+    \node[below right = 2cm and 1.5cm of Xm] (Y) {$Y_i$};
+    %% Xm to Xu Effect Association
+    \draw[very thick] (Xm) -> (Xu);
+    %% Treatment Effect Association
+    \draw[very thick] (A) -> (Y);
+    %% Confounder-Exposure Association
+    \draw[very thick] (Xu) -> (A);
+    \draw[very thick] (Xm) -> (A);
+    %% Confounder-Outcome Association
+    \draw[very thick] (Xu) -> (Y);
+    \draw[very thick] (Xm) -> (Y);
+  \end{tikzpicture}
+\end{center}
+\tiny
+The unmeasured confounders were made more prevalent in the three tails of the PS distribution. $A_{i}$ was a three-valued treatment and $Y_{i}$ was a Poisson outcome.\\
+\nbsp{}\\
 
-**** Right
-:PROPERTIES:
-:BEAMER_col: 0.48
-:BEAMER_opt: [T]
-:END:
+\tiny
+*X-axis*: increasing level of trimming\\
+*Y-axis*: bias on the log rate ratio scale (zero is unbiased)\\
+\nbsp{}\\
+*1vs0*: Group 1 vs Group 0\\
+*2vs0*: Group 2 vs Group 0\\
+*2vs1*: Group 2 vs Group 1\\
+\nbsp{}\\
+*Unadj*: Unadjusted\\
+*IPTW*: Inverse probability of treatment weights\\
+*MW*: Matching weights cite:YoshidaMatchingWeightsSimultaneously2017\\
+*OW*: Overlap weights cite:LiBalancingCovariatesPropensity2016\\
 
-#+NAME: coderight
-#+BEGIN_SRC R  :file 4r.png :session :exports results :results graphics
-d2 <- density(x2)
-plot(d2, col="blue", lwd=3)
-#+END_SRC
+**** @@latex:@@
+   :PROPERTIES:
+   :BEAMER_env: exampleblock
+   :END:
+- Bias was reduced by all methods, but Stürmer's and Walker's methods reduced bias more successfully when group sizes were highly imbalanced.
+- All methods reduced variance of the IPTW estimator, but not MW and OW estimators.
 
-\captionsetup{justification=justified,width=.85\linewidth}
-#+NAME: figcoderight
-#+CAPTION: This is the right figure. It shows the density of $x2$.
-#+RESULTS: coderight
-[[file:4r.png]]
-
-*** Conclusions                                            :B_block:
+*** Conclusions                                                     :B_block:
 :PROPERTIES:
 :BEAMER_env: block
 :END:
-- This example is meant to show how versatile org-mode is
-- Scientific posters can be produced with a simple text editor 
+- We proposed a multinomial extension of the existing two-group PS trimming methods.
 
-	
+- The extensions of Stürmer and Walker’s PS trimming methods reduced bias in 3-group exposure settings even with highly imbalanced treatment frequencies (10:10:80).
+
+- Examining how effect estimates vary at different trimming thresholds can be a useful sensitivity analysis although roles of treatment effect heterogeneity may also need consideration.
+
+*** Bibliography                                                    :B_block:
+   :PROPERTIES:
+   :BEAMER_opt: allowframebreaks,label=,t
+   :END:
+\vspace{-0.7ex}
+\scriptsize
+# To remove "References" section header
+\renewcommand{\section}[2]{}
+# Following lines must be left-aligned without preceding spaces.
+bibliographystyle:apalike
+bibliography:~/.emacs.d/misc/zotero.bib

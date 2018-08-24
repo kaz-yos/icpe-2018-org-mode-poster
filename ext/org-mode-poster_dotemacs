@@ -7,6 +7,9 @@
 ;; get rid of yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; no back up files
+(setq make-backup-files nil)
+
 ;; package archives
 (require 'package)
 (add-to-list 'package-archives 
@@ -220,5 +223,3 @@
 (require 'org-ref-pubmed)
 (require 'org-ref-wos)
 (require 'org-ref-scopus)
-(setq reftex-default-bibliography '("master.bib"))
-(setq org-ref-default-bibliography '("master.bib"))

@@ -33,7 +33,7 @@
 % custom colors
 %--------------------------------------------------------------------------------
 \definecolor{i6blue}{cmyk}{1,0.305,0,0.06}
-\definecolor{i6bluedark}{rgb}{0.0156,0.2578,0.5625} 
+\definecolor{i6bluedark}{rgb}{0.0156,0.2578,0.5625}
 \definecolor{i6colorscheme1}{HTML}{FF6518}  % e.g. for block title
 %\definecolor{i6colorscheme1}{HTML}{FFFFFF}  % e.g. for block title
 %\definecolor{i6colorblockbg}{HTML}{0033cc}
@@ -46,7 +46,7 @@
 \definecolor{i6colorscheme3}{HTML}{C3DFFF}  % e.g. for poster background
 %\definecolor{i6colorscheme3}{HTML}{0033CC}  % e.g. for poster background
 \definecolor{i6colorscheme5}{HTML}{FFFFFF}  % e.g. for poster background
-\definecolor{i6colorscheme4}{HTML}{000000} 
+\definecolor{i6colorscheme4}{HTML}{000000}
 \definecolor{i6colorschemeHeadline}{HTML}{0033cc}  % for headline bg
 %\definecolor{i6colorschemeHeadline}{HTML}{FFFFFF}  % for headline bg
 %\definecolor{i6colorschemeFootline}{HTML}{100D09}  % for headline bg
@@ -124,33 +124,32 @@
 %--------------------------------------------------------------------------------
 % headline
 %--------------------------------------------------------------------------------
-\setbeamertemplate{headline}{  
+\setbeamertemplate{headline}{
   \leavevmode
   \begin{columns}[t,onlytextwidth]
-	\column{.87\textwidth}
-	  \begin{beamercolorbox}[wd=\columnwidth, leftskip=2.0cm, ht=11.55cm]{headline}
-%  	\vskip1.5cm
-%		\centering
-     \vskip7.6ex
 
-    \usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[1ex]}
-     \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
-     \vskip2.4ex
-	  \end{beamercolorbox}
-	\column{.13\textwidth}
-	   \begin{beamercolorbox}[wd=\columnwidth]{logo}
-    \centering
-		\vskip2.10cm
-		\includegraphics[width=0.8\linewidth]{logo.pdf}
-		\vskip2.10cm
-	   \end{beamercolorbox}
+    \column{0.937\textwidth}
+    \begin{beamercolorbox}[wd=\columnwidth, leftskip=2.0cm, ht=11.55cm]{headline}
+      % \vskip1.5cm
+      % \centering
+      \vskip7.6ex
+
+      \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+      \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+      \vskip2.4ex
+    \end{beamercolorbox}
+
+    \column{0.063\textwidth}
+    \begin{beamercolorbox}[wd=\columnwidth, ht=11.55cm]{logo}
+      \centering
+      % vskip is necessary for white space above logos.
+      % \vskip 4.0cm
+      \includegraphics[width=1.0\linewidth]{chan.png}
+      \includegraphics[width=1.0\linewidth]{brigham.jpeg}
+      % vskip is necessary for white space below logos.
+      % \vskip 4.0cm
+    \end{beamercolorbox}
   \end{columns}
-  %\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
-  %  \rule{0pt}{2pt}
-  %\end{beamercolorbox}
-  %\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
-  %  \rule{0pt}{2pt}
-  %\end{beamercolorbox}
 
 
 }
@@ -166,48 +165,26 @@
   %\end{beamercolorbox}
 
   \begin{columns}[t,onlytextwidth]
-	\column{.35\textwidth}
+	\column{.5\textwidth}
 	   %\begin{beamercolorbox}[leftskip=-0.5cm,wd=\columnwidth, ht=3cm]{logo}
-	   \begin{beamercolorbox}[leftskip=-0.5cm,wd=\columnwidth, ht=4cm]{logo}
-    \includegraphics[width=0.9\textwidth,right]{logo_feinstein.pdf}
-    %\vskip1.6ex
-     \vspace{0.3ex}
-	   \end{beamercolorbox}
-	\column{.65\textwidth}
+    %        \begin{beamercolorbox}[leftskip=-0.5cm,wd=\columnwidth, ht=4cm]{logo}
+    % \includegraphics[width=0.9\textwidth,right]{logo_feinstein.pdf}
+    % %\vskip1.6ex
+    %  \vspace{0.3ex}
+    %        \end{beamercolorbox}
+	\column{.5\textwidth}
 	  \begin{beamercolorbox}[leftskip=1cm,wd=\columnwidth, ht=4cm]{headline}
-    %\hfill \raisebox{-0.4cm}{\insertfooter}
-    %\vskip1.5ex
-    %\insertfooter
-    %\includegraphics[width=0.65\textwidth,left]{twittergithub.pdf}
-    %\vskip1.5ex
-	  %\begin{beamercolorbox}[wd=\columnwidth]{logo}
 
-    %\begin{tabular}{rllrll}
-    %  \textbf{Philipp Homan, MD, PhD} & & & & & \\
-    %  phoman1@northwell.edu & & 
-    %  \includegraphics[width=0.5in]{twitter.pdf} & @philipphoman &  
-    %  \includegraphics[width=0.5in]{github.pdf} & github.com/philipphoman \\
-    % \end{tabular}
-    % \vspace{-0.2ex}
-
-    \begin{tabular}{rlrlrl}
-      %\textbf{Philipp Homan, MD, PhD} & & & & & \\
+    \begin{tabular}{llrlrl}
       \textbf{\auth} & & & & & \\
-      \authemail & & 
-      \includegraphics[width=0.5in]{twitter.pdf} & \authtwitter &  
-      \includegraphics[width=0.5in]{github.pdf} & \authgithub 
+      \authemail & &
+      \includegraphics[width=0.5in]{twitter.pdf} & \authtwitter &
+      \includegraphics[width=0.5in]{github.pdf} & \authgithub
      \end{tabular}
      \vspace{0.3ex}
 
 	  \end{beamercolorbox}
   \end{columns}
-  %\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
-  %  \rule{0pt}{2pt}
-  %\end{beamercolorbox}
-  %\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
-  %  \rule{0pt}{2pt}
-  %\end{beamercolorbox}
-
 
 }
 %--------------------------------------------------------------------------------

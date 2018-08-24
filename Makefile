@@ -28,9 +28,9 @@ README = README.md
 
 # executables
 RM = rm -Rf
-TEX = xelatex -interaction nonstopmode -shell-escape 
+TEX = xelatex -interaction nonstopmode -shell-escape
 BIBTEX = bibtex
-EMACSINIT = $(EXT)/$(PROJ)_dotemacs 
+EMACSINIT = $(EXT)/$(PROJ)_dotemacs
 EMACS = emacs -l ../$(EMACSINIT)
 EMACSMSARGS = --batch -f org-latex-export-to-latex --kill
 EMACSPARGS =  --batch -f org-beamer-export-to-latex --kill
@@ -70,7 +70,7 @@ $(SRC)/%.tex: $(SRC)/%.org $(PDFLIB) $(SRC)/beamerthemeph.sty $(EMACSINIT)
 # careful with relative paths
 $(SRC)/%.aux: $(SRC)/%.tex $(PDFLIB)
 	cd $(SRC) && $(TEX) $(notdir $<)
-	cd $(SRC) && $(TEX) $(notdir $<) 
+	cd $(SRC) && $(TEX) $(notdir $<)
 
 # Default entry
 all: poster readme
@@ -79,7 +79,6 @@ $(README): README.org $(EMACSINIT)
 	emacs -l $(EMACSINIT) README.org $(EMACSRARGS);
 
 git: all
-	convert $(POSTER) $(SRC)/org-mode-poster_poster.png
 	git add src/org-mode-poster_poster.org
 	git add src/org-mode-poster_poster.tex
 	git add src/org-mode-poster_poster.pdf
@@ -93,22 +92,23 @@ git: all
 	git push origin master
 
 # make poster
-poster: tex 
+poster: tex
 
 # run tex files
 tex: $(TEXOUTFILES) $(TEXFILES)
 
 # convert the readme file
 readme: $(README)
+	convert $(POSTER) $(SRC)/org-mode-poster_poster.png
 
 viewposter: poster
-	pdfview $(POSTER)
+	open -a /Applications/Skim.app $(POSTER)
 
 .PHONY: clean texclean Rclean
 
-clean: texclean 
+clean: texclean
 
-texclean: 
+texclean:
 	$(RM) $(TEXOUT)/$(PROJ)*.tex
 	$(RM) $(TEXOUT)/$(PROJ)*.aux
 
