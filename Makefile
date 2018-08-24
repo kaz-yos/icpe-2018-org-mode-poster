@@ -79,7 +79,6 @@ $(README): README.org $(EMACSINIT)
 	emacs -l $(EMACSINIT) README.org $(EMACSRARGS);
 
 git: all
-	convert $(POSTER) $(SRC)/org-mode-poster_poster.png
 	git add src/org-mode-poster_poster.org
 	git add src/org-mode-poster_poster.tex
 	git add src/org-mode-poster_poster.pdf
@@ -100,6 +99,7 @@ tex: $(TEXOUTFILES) $(TEXFILES)
 
 # convert the readme file
 readme: $(README)
+	convert $(POSTER) $(SRC)/org-mode-poster_poster.png
 
 viewposter: poster
 	open -a /Applications/Skim.app $(POSTER)
