@@ -7,9 +7,9 @@
 <img width=800 src="src/org-mode-poster_poster.png" /></p>
 
 
-# Author
+# Authors
 
-Kazuki Yoshida <kazukiyoshida@mail.harvard.edu>
+[Kazuki Yoshida](https://twitter.com/kaz_yos) <kazukiyoshida@mail.harvard.edu>, Daniel H Solomon, Sebastien Haneuse, Seoyoung C Kim, Elisabetta Patorno, Sara K Tedeschi, Houchen Lyu, Sonia Hernandez-Diaz, Robert J Glynn.
 
 
 # What this poster is about
