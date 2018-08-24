@@ -9,62 +9,24 @@
 
 # Author
 
-Philipp Homan <phoman1 at northwell dot edu>
+Kazuki Yoshida <kazukiyoshida@mail.harvard.edu>
 
 
-# Getting Started
+# What this poster is about
 
-This is a simple template to produce a scientific poster with emacs and
-org-mode. It includes a Makefile so that the poster can be created from
-the command line by running the 'make' command.
+This International Conference for Pharmacoepidemiology (ICPE) 2018 poster describes our proposed definitions to extending the existing propensity score trimming methods (Crump et al. Biometrika 2009;96:187, Stürmer et al. Am J Epidemiol 2010;172:843, and Walker et al. Comp Eff Res 2013;3:11) into the multinomial exposure settings.  
 
-
-## Prerequisites
-
-To create the poster from the command line, GNU emacs and texlive must
-be installed together with some additional emacs and texlive
-packages. Specifically, the following software and associated libraries
-are required:
+You can experiment with how these definitions behave in the three group setting in a web application available at <https://kaz-yos.shinyapps.io/shiny_trim_ternary/>.
 
 
-### texlive
+# How this poster was created
 
--   xetex
-
--   latexmk
+This LaTeX poster was created using an emacs org-mode template provided by [Dr. Philipp Homan](https://github.com/philipphoman/org-mode-poster).
 
 
-### emacs
+## Built With
 
--   org-mode
-
--   ess
-
--   org-ref
-
-
-### R
-
--   pacman
-
--   cowplot
-
--   ggplot2
-
-
-# Installing
-
-Download the repository and run tar xvfz on the tarball.
-
-
-# Creating the poster
-
-Change to the org-mode-poster directory and run 'make poster'.
-
-
-# Built With
-
-Ubuntu 17.10 on emacs
-25.2.2 and org-mode
-9.1.7.
+macOS 10.13.6 on emacs
+27.0.50 and org-mode
+9.1.13.
 
